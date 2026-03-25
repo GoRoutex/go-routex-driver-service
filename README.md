@@ -1,91 +1,146 @@
-# Ecommerce Server Side
+# Go Routex – Transportation Management & Development Platform
 
-## Getting started
+## Overview
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+Go Routex is a comprehensive transportation management platform designed to digitalize and optimize bus operator businesses.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+The system supports end-to-end operations including:
 
-## Add your files
+- Passenger booking & trip management
+- Driver & fleet management
+- Hub/station coordination
+- Financial & operational reporting
+- Real-time monitoring & administration
 
-* [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-* [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+Go Routex is built with a microservices architecture, scalable infrastructure, and cloud-native deployment strategy.
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/e-commerce9074302/ecommerce-server-side.git
-git branch -M main
-git push -uf origin main
-```
+---
+### Core Principles
 
-## Integrate with your tools
+- Microservices-based backend architecture
+- RESTful API design
+- Stateless services
+- Containerized deployment (Docker)
+- Kubernetes-ready infrastructure
+- GitOps-based CI/CD workflow
 
-* [Set up project integrations](https://gitlab.com/e-commerce9074302/ecommerce-server-side/-/settings/integrations)
+---
 
-## Collaborate with your team
+## Repository Structure
 
-* [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-* [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-* [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-* [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-* [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+The Go Routex ecosystem consists of multiple repositories organized by domain and responsibility.
 
-## Test and Deploy
+### Backend Services
 
-Use the built-in continuous integration in GitLab.
+| Repository | Description |
+|------------|------------|
+| go-routex-user-service | User management, authentication, role & permission |
+| go-routex-driver-service | Driver profile, availability, and operations |
+| go-routex-trip-service | Trip scheduling and route management |
+| go-routex-booking-service | Passenger booking & ticket handling |
+| go-routex-payment-service | Payment integration & transaction processing |
+| go-routex-gateway | API Gateway & request routing |
+| go-routex-deployment-config | Centralized configuration management |
 
-* [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-* [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-* [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-* [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-* [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+---
 
-***
+### Frontend Applications
 
-# Editing this README
+| Application | Description |
+|------------|------------|
+| Driver App | Mobile application for drivers |
+| Customer App | Mobile booking application |
+| Admin Portal | Web-based internal management dashboard |
+| Global Portal | Public-facing web platform |
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+---
 
-## Suggestions for a good README
+### Infrastructure & DevOps
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+| Repository | Description |
+|------------|------------|
+| go-routex-deployment-config | GitOps deployment configuration |
+| CI/CD Pipelines | Automated build, tag, release & deployment |
+| Kubernetes Manifests | Cluster deployment resources |
 
-## Name
-Choose a self-explaining name for your project.
+---
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+## Technology Stack
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+### Backend
+- Java 21
+- Spring Boot
+- Spring Security
+- JPA / Hibernate
+- PostgreSQL
+- Redis (optional caching)
+- Kafka (optional event streaming)
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+### Mobile
+- React Native / Expo
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+### Frontend Web
+- React / Next.js
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+### DevOps
+- Docker
+- Kubernetes
+- GitHub / GitLab CI
+- GHCR (GitHub Container Registry)
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+---
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+## Security
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+- JWT-based authentication
+- Role-based access control (RBAC)
+- Encrypted credential storage
+- Secure service-to-service communication
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+---
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+## Deployment Strategy
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+Go Routex follows a GitOps-based deployment model:
+
+1. Code merged into `master`
+2. CI auto-build & auto-tag
+3. Docker image pushed to container registry
+4. GitOps repository updated
+5. Kubernetes auto-sync deployment
+
+### Environments
+
+- dev
+- staging
+- production
+
+---
+
+## Core Business Domains
+
+Go Routex manages the following core entities:
+
+- Users (Admin / Staff / Customer)
+- Drivers
+- Vehicles
+- Routes
+- Trips
+- Bookings
+- Payments
+- Hubs / Stations
+
+---
+
+## Contribution Workflow
+
+1. Create feature branch
+2. Submit Pull Request
+3. Code review required
+4. Protected master branch (no direct merge)
+
+---
 
 ## License
-For open source projects, say how it is licensed.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Private project – All rights reserved.
