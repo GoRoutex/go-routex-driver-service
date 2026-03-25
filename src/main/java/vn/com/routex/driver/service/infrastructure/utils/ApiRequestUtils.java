@@ -2,7 +2,7 @@ package vn.com.routex.driver.service.infrastructure.utils;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.experimental.UtilityClass;
-import vn.com.routex.driver.service.application.RequestAttributes;
+import vn.com.routex.driver.service.infrastructure.web.RequestAttributes;
 import vn.com.routex.driver.service.interfaces.models.base.BaseRequest;
 
 @UtilityClass

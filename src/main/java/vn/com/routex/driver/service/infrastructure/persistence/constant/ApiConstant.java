@@ -9,4 +9,5 @@ public class ApiConstant {
     public static final String GET_DRIVER = "/get-driver";
     public static final String DELETE_PROFILE = "/delete-profile";
     public static final String UPDATE_STATUS = "/update-status";
+    public static final String TRIP_MANIFEST = "/trip-manifest";
 }

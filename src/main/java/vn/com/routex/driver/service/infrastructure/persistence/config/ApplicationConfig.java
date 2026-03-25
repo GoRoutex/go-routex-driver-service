@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.io.IOException;
+import java.time.Clock;
 
 @Configuration
 public class ApplicationConfig {
@@ -45,5 +46,10 @@ public class ApplicationConfig {
         objectMapper.registerModule(stringNullToEmptyModule);
         objectMapper.registerModules(new JavaTimeModule());
         return objectMapper;
+    }
+
+    @Bean
+    public Clock clock() {
+        return Clock.systemDefaultZone();
     }
 }

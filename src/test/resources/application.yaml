@@ -28,16 +28,16 @@ spring:
         spring.json.trusted.packages: "vn.com.*"
 
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/routexhub}
-    username: ${SPRING_DATASOURCE_USERNAME:routex}
-    password: ${SPRING_DATASOURCE_PASSWORD:routex@2026}
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:h2:mem:driver_service_test;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
 
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:update}
-    show-sql: ${SPRING_JPA_SHOW_SQL:false}
+      ddl-auto: create-drop
+    show-sql: false
 
   security:
     user:
@@ -85,3 +85,11 @@ server:
 logging:
   level:
     org.springframework.security: DEBUG
+
+identity:
+  jwt:
+    secret: test-secret-test-secret-test-secret-test-secret
+    issuer: test
+    audience: test
+    authority-claim-name: roles
+    authority-prefix: ROLE_

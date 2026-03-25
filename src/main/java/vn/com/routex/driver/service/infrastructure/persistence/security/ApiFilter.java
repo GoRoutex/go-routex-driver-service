@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.ContentCachingResponseWrapper;
-import vn.com.routex.driver.service.application.RequestAttributes;
+import vn.com.routex.driver.service.infrastructure.web.RequestAttributes;
 import vn.com.routex.driver.service.interfaces.models.base.BaseRequest;
 
 import java.io.IOException;

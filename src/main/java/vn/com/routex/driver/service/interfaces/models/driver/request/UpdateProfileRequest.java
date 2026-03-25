@@ -1,6 +1,5 @@
 package vn.com.routex.driver.service.interfaces.models.driver.request;
 
-import jakarta.persistence.Lob;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -10,10 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-import vn.com.routex.driver.service.domain.driver.DriverStatus;
 import vn.com.routex.driver.service.interfaces.models.base.BaseRequest;
-
-import java.time.LocalDate;
 
 import static vn.com.routex.driver.service.infrastructure.persistence.constant.ApplicationConstant.DATE_MONTH_YEAR_REGEX;
 
@@ -70,7 +66,6 @@ public class UpdateProfileRequest extends BaseRequest {
         private Boolean kycVerified;
         private Boolean trainingCompleted;
 
-        @Lob
         private String note;
     }
 }

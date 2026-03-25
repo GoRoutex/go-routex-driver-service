@@ -14,6 +14,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
+import vn.com.routex.driver.service.application.services.common.UseCaseException;
 import vn.com.routex.driver.service.infrastructure.utils.ApiRequestUtils;
 import vn.com.routex.driver.service.interfaces.models.base.BaseRequest;
 import vn.com.routex.driver.service.interfaces.models.base.BaseResponse;
@@ -76,6 +77,13 @@ public class ExceptionHandlerAdvice {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(buildBaseResponse(baseRequest, ex.getResult()));
 
         }
+    }
+
+    @ExceptionHandler(UseCaseException.class)
+    public ResponseEntity<BaseResponse> handleUseCaseException(HttpServletRequest request, UseCaseException ex) {
+        BaseRequest baseRequest = logAndGetBaseRequest(request, ex);
+        HttpStatus status = TIMEOUT_ERROR.equals(ex.getCode()) ? HttpStatus.GATEWAY_TIMEOUT : HttpStatus.BAD_REQUEST;
+        return createErrorResponse(status, baseRequest, ex.getCode(), ex.getDescription());
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
