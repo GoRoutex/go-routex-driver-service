@@ -25,12 +25,12 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ErrorConstant.INVALID_HTTP_REQUEST_RESOURCE_ERROR;
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ErrorConstant.INVALID_HTTP_REQUEST_RESOURCE_ERROR_MESSAGE;
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ErrorConstant.INVALID_INPUT_ERROR;
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ErrorConstant.INVALID_INPUT_MESSAGE;
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ErrorConstant.INVALID_REQUEST_TIMESTAMP;
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ErrorConstant.TIMEOUT_ERROR;
+import static vn.com.routex.driver.service.application.services.common.ErrorConstant.INVALID_HTTP_REQUEST_RESOURCE_ERROR;
+import static vn.com.routex.driver.service.application.services.common.ErrorConstant.INVALID_HTTP_REQUEST_RESOURCE_ERROR_MESSAGE;
+import static vn.com.routex.driver.service.application.services.common.ErrorConstant.INVALID_INPUT_ERROR;
+import static vn.com.routex.driver.service.application.services.common.ErrorConstant.INVALID_INPUT_MESSAGE;
+import static vn.com.routex.driver.service.application.services.common.ErrorConstant.INVALID_REQUEST_TIMESTAMP;
+import static vn.com.routex.driver.service.application.services.common.ErrorConstant.TIMEOUT_ERROR;
 
 @Slf4j
 @RestControllerAdvice

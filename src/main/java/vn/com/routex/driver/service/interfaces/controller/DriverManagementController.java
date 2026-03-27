@@ -25,14 +25,14 @@ import vn.com.routex.driver.service.interfaces.models.driver.response.DriverProf
 import vn.com.routex.driver.service.interfaces.models.driver.response.UpdateDriverStatusResponse;
 import vn.com.routex.driver.service.interfaces.models.driver.response.UpdateProfileResponse;
 
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ApiConstant.API_PATH;
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ApiConstant.API_VERSION;
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ApiConstant.CREATE_PROFILE;
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ApiConstant.DELETE_PROFILE;
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ApiConstant.DRIVER_PREFIX;
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ApiConstant.GET_DRIVER;
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ApiConstant.UPDATE_PROFILE;
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ApiConstant.UPDATE_STATUS;
+import static vn.com.routex.driver.service.interfaces.controller.constant.ApiConstant.API_PATH;
+import static vn.com.routex.driver.service.interfaces.controller.constant.ApiConstant.API_VERSION;
+import static vn.com.routex.driver.service.interfaces.controller.constant.ApiConstant.CREATE_PROFILE;
+import static vn.com.routex.driver.service.interfaces.controller.constant.ApiConstant.DELETE_PROFILE;
+import static vn.com.routex.driver.service.interfaces.controller.constant.ApiConstant.DRIVER_PREFIX;
+import static vn.com.routex.driver.service.interfaces.controller.constant.ApiConstant.GET_DRIVER;
+import static vn.com.routex.driver.service.interfaces.controller.constant.ApiConstant.UPDATE_PROFILE;
+import static vn.com.routex.driver.service.interfaces.controller.constant.ApiConstant.UPDATE_STATUS;
 
 @RestController
 @RequestMapping(API_PATH + API_VERSION + DRIVER_PREFIX)

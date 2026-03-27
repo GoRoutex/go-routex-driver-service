@@ -15,8 +15,8 @@ import vn.com.routex.driver.service.interfaces.models.driver.response.UpdateDriv
 import vn.com.routex.driver.service.interfaces.models.driver.response.UpdateProfileResponse;
 import vn.com.routex.driver.service.interfaces.models.result.ApiResult;
 
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ErrorConstant.SUCCESS_CODE;
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ErrorConstant.SUCCESS_MESSAGE;
+import static vn.com.routex.driver.service.application.services.common.ErrorConstant.SUCCESS_CODE;
+import static vn.com.routex.driver.service.application.services.common.ErrorConstant.SUCCESS_MESSAGE;
 
 @UtilityClass
 public class DriverProfileApiResponseMapper {
@@ -128,4 +128,3 @@ public class DriverProfileApiResponseMapper {
                 .build();
     }
 }
-

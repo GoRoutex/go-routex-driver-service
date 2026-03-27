@@ -1,5 +1,8 @@
-package vn.com.routex.driver.service.infrastructure.persistence.constant;
+package vn.com.routex.driver.service.interfaces.controller.constant;
 
+/**
+ * HTTP routing constants for controllers (interfaces layer).
+ */
 public class ApiConstant {
     public static final String API_PATH = "/api";
     public static final String API_VERSION = "/v1";
@@ -11,3 +14,4 @@ public class ApiConstant {
     public static final String UPDATE_STATUS = "/update-status";
     public static final String TRIP_MANIFEST = "/trip-manifest";
 }
+

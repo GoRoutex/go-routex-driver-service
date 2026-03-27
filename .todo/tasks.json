@@ -60,8 +60,8 @@
     "id": "TASK_6",
     "priority": "HIGH",
     "tags": [],
-    "title": "Add Sequence + Procedure for generating driverCode",
-    "description": "",
+    "title": "Add APIs",
+    "description": "Manifest: /api/v1/management-service/trips/{tripId}/manifest\n\nVehicle reassignment: /api/v1/management-service/trips/{tripId}/reassign-vehicle\n\nIncident: /api/v1/management-service/trips/{tripId}/incidents /api/v1/management-service/trips/{tripId}/incidents /api/v1/management-service/incidents/{incidentId}/resolve\n\nBooking close policy: /api/v1/management-service/routes/{routeId}/booking-policy /api/v1/management-service/trips/{tripId}/booking-policy\n\nDelay / cancel: /api/v1/management-service/trips/{tripId}/delay\n/api/v1/management-service/trips/{tripId}/cancel\n\n",
     "status": "TODO",
     "date": {
       "date": {

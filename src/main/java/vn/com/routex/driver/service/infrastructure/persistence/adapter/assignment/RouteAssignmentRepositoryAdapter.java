@@ -20,6 +20,13 @@ public class RouteAssignmentRepositoryAdapter implements RouteAssignmentReposito
     }
 
     @Override
+    public Optional<RouteAssignment> findByRouteId(String routeId) {
+        return routeAssignmentJpaRepository.findByRouteId(routeId).map(RouteAssignmentPersistenceMapper::toDomain);
+
+    }
+
+
+    @Override
     public RouteAssignment save(RouteAssignment assignment) {
         return RouteAssignmentPersistenceMapper.toDomain(routeAssignmentJpaRepository.save(RouteAssignmentPersistenceMapper.toEntity(assignment)));
     }
