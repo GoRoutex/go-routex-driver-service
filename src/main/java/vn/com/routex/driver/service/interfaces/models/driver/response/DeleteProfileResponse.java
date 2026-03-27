@@ -1,6 +1,5 @@
 package vn.com.routex.driver.service.interfaces.models.driver.response;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,12 +11,8 @@ import vn.com.routex.driver.service.interfaces.models.base.BaseResponse;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @SuperBuilder
-public class DeleteProfileResponse extends BaseResponse {
-
-    private DeleteProfileResponseData data;
+public class DeleteProfileResponse extends BaseResponse<DeleteProfileResponse.DeleteProfileResponseData> {
 
     @Getter
     @Setter

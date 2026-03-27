@@ -17,8 +17,8 @@ import vn.com.routex.driver.service.interfaces.models.driver.request.UpdateProfi
 
 import java.time.LocalDate;
 
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ErrorConstant.INVALID_INPUT_ERROR;
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ErrorConstant.INVALID_INPUT_MESSAGE;
+import static vn.com.routex.driver.service.application.services.common.ErrorConstant.INVALID_INPUT_ERROR;
+import static vn.com.routex.driver.service.application.services.common.ErrorConstant.INVALID_INPUT_MESSAGE;
 
 @UtilityClass
 public class DriverProfileApiMapper {

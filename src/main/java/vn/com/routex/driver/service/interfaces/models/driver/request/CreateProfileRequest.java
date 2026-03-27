@@ -14,11 +14,11 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import vn.com.routex.driver.service.interfaces.models.base.BaseRequest;
 
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ApplicationConstant.DATE_MONTH_YEAR_REGEX;
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ApplicationConstant.ONLY_CHARACTER_REGEX;
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ApplicationConstant.ONLY_NUMBER_AND_CHARACTER_DIGITS;
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ApplicationConstant.ONLY_NUMBER_REGEX;
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ApplicationConstant.UUID_REGEX;
+import static vn.com.routex.driver.service.interfaces.models.constant.ApplicationConstant.DATE_MONTH_YEAR_REGEX;
+import static vn.com.routex.driver.service.interfaces.models.constant.ApplicationConstant.ONLY_CHARACTER_REGEX;
+import static vn.com.routex.driver.service.interfaces.models.constant.ApplicationConstant.ONLY_NUMBER_AND_CHARACTER_DIGITS;
+import static vn.com.routex.driver.service.interfaces.models.constant.ApplicationConstant.ONLY_NUMBER_REGEX;
+import static vn.com.routex.driver.service.interfaces.models.constant.ApplicationConstant.UUID_REGEX;
 
 @Getter
 @Setter

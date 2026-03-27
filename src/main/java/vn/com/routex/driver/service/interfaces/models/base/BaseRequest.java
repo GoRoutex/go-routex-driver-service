@@ -12,9 +12,9 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ApplicationConstant.CHANNEL_REGREX;
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ApplicationConstant.DATETIME_REGREX;
-import static vn.com.routex.driver.service.infrastructure.persistence.constant.ApplicationConstant.REQUEST_ID_REGREX;
+import static vn.com.routex.driver.service.interfaces.models.constant.ApplicationConstant.CHANNEL_REGREX;
+import static vn.com.routex.driver.service.interfaces.models.constant.ApplicationConstant.DATETIME_REGREX;
+import static vn.com.routex.driver.service.interfaces.models.constant.ApplicationConstant.REQUEST_ID_REGREX;
 
 
 @Getter
@@ -38,4 +38,3 @@ public class BaseRequest {
     @Pattern(regexp = CHANNEL_REGREX, message = "Channel must be ONL, OFF")
     private String channel;
 }
-

@@ -40,7 +40,7 @@ public class DriverProfilePersistenceMapper {
         if (domain == null) {
             return null;
         }
-        DriverProfileJpaEntity entity = DriverProfileJpaEntity.builder()
+        return DriverProfileJpaEntity.builder()
                 .id(domain.getId())
                 .userId(domain.getUserId())
                 .currentRouteId(domain.getCurrentRouteId())
@@ -61,6 +61,5 @@ public class DriverProfilePersistenceMapper {
                 .trainingCompleted(domain.getTrainingCompleted())
                 .note(domain.getNote())
                 .build();
-        return entity;
     }
 }

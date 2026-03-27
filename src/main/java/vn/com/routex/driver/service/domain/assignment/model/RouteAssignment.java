@@ -19,6 +19,8 @@ public class RouteAssignment {
 
     private String vehicleId;
 
+    private String driverId;
+
     private OffsetDateTime assignedAt;
 
     private OffsetDateTime unAssignedAt;

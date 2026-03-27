@@ -1,6 +1,5 @@
 package vn.com.routex.driver.service.interfaces.models.driver.response;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,12 +12,8 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @SuperBuilder
-public class UpdateProfileResponse extends BaseResponse {
-
-    private UpdateProfileResponseData data;
+public class UpdateProfileResponse extends BaseResponse<UpdateProfileResponse.UpdateProfileResponseData> {
 
     @Getter
     @Setter

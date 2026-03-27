@@ -1,5 +1,8 @@
-package vn.com.routex.driver.service.infrastructure.persistence.constant;
+package vn.com.routex.driver.service.interfaces.models.constant;
 
+/**
+ * Interfaces-layer validation constants used by HTTP DTOs.
+ */
 public class ApplicationConstant {
 
     public static final String REQUEST_ID_REGREX = "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$";
@@ -12,3 +15,4 @@ public class ApplicationConstant {
     public static final String DATE_MONTH_YEAR_REGEX = "^(19|20)\\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$";
 
 }
+

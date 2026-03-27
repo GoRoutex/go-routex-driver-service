@@ -13,6 +13,7 @@ public class RouteAssignmentPersistenceMapper {
         return new RouteAssignment(
                 entity.getId(),
                 entity.getRouteId(),
+                entity.getDriverId(),
                 entity.getVehicleId(),
                 entity.getAssignedAt(),
                 entity.getUnAssignedAt(),
@@ -28,6 +29,7 @@ public class RouteAssignmentPersistenceMapper {
         entity.setId(domain.getId());
         entity.setRouteId(domain.getRouteId());
         entity.setVehicleId(domain.getVehicleId());
+        entity.setDriverId(domain.getDriverId());
         entity.setAssignedAt(domain.getAssignedAt());
         entity.setUnAssignedAt(domain.getUnAssignedAt());
         entity.setStatus(domain.getStatus());

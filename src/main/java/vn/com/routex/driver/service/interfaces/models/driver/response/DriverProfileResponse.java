@@ -1,8 +1,5 @@
 package vn.com.routex.driver.service.interfaces.models.driver.response;
 
-
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,20 +8,13 @@ import lombok.experimental.SuperBuilder;
 import vn.com.routex.driver.service.domain.driver.model.DriverStatus;
 import vn.com.routex.driver.service.domain.driver.model.OperationStatus;
 import vn.com.routex.driver.service.interfaces.models.base.BaseResponse;
-import vn.com.routex.driver.service.interfaces.models.result.ApiResult;
 
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @SuperBuilder
-public class DriverProfileResponse extends BaseResponse {
-
-    @Valid
-    @NotNull
-    private DriverProfileResponseData data;
+public class DriverProfileResponse extends BaseResponse<DriverProfileResponse.DriverProfileResponseData> {
 
     @Getter
     @Setter

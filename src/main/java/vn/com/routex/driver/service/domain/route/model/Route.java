@@ -16,6 +16,7 @@ import java.time.OffsetDateTime;
 public class Route extends AbstractAuditingEntity {
 
     private String id;
+
     private String routeCode;
 
     private String origin;
