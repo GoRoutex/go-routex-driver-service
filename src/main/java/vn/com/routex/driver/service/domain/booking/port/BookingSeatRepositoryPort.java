@@ -1,5 +1,7 @@
 package vn.com.routex.driver.service.domain.booking.port;
 
+import vn.com.routex.driver.service.domain.booking.BookingSeatStatus;
+import vn.com.routex.driver.service.domain.booking.BookingStatus;
 import vn.com.routex.driver.service.domain.booking.model.BookingSeat;
 
 import java.util.List;
@@ -11,4 +13,6 @@ public interface BookingSeatRepositoryPort {
     BookingSeat save(BookingSeat bookingSeat);
 
     List<BookingSeat> findByBookingId(String bookingId);
+
+    List<BookingSeat> findByBookingIdAndStatus(String id, BookingSeatStatus bookingSeatStatus);
 }

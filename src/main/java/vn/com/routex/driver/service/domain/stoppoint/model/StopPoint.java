@@ -23,7 +23,7 @@ public class StopPoint extends AbstractAuditingEntity {
 
     private BigDecimal latitude; // Vi Do
 
-    private BigDecimal longtitude; // Kinh do
+    private BigDecimal longitude; // Kinh do
 
     private StopType type;
 }

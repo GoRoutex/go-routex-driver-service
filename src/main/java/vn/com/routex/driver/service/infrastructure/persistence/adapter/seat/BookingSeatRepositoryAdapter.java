@@ -2,6 +2,7 @@ package vn.com.routex.driver.service.infrastructure.persistence.adapter.seat;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import vn.com.routex.driver.service.domain.booking.BookingSeatStatus;
 import vn.com.routex.driver.service.domain.booking.model.BookingSeat;
 import vn.com.routex.driver.service.domain.booking.port.BookingSeatRepositoryPort;
 import vn.com.routex.driver.service.infrastructure.persistence.jpa.booking.repository.BookingSeatJpaRepository;
@@ -35,6 +36,12 @@ public class BookingSeatRepositoryAdapter implements BookingSeatRepositoryPort {
     @Override
     public List<BookingSeat> findByBookingId(String bookingId) {
         return bookingSeatJpaRepository.findByBookingId(bookingId).stream().map(BookingSeatPersistenceMapper::toDomain).toList();
+
+    }
+
+    @Override
+    public List<BookingSeat> findByBookingIdAndStatus(String id, BookingSeatStatus bookingSeatStatus) {
+        return bookingSeatJpaRepository.findByBookingIdAndStatus(id, bookingSeatStatus).stream().map(BookingSeatPersistenceMapper::toDomain).toList();
 
     }
 }

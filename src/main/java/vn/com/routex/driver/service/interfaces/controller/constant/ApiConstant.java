@@ -13,5 +13,8 @@ public class ApiConstant {
     public static final String DELETE_PROFILE = "/delete-profile";
     public static final String UPDATE_STATUS = "/update-status";
     public static final String TRIP_MANIFEST = "/trip-manifest";
+    public static final String TRIP_PASSENGERS = "/trip-passengers";
+    public static final String CHECKIN_PATH = "/check-in";
+    public static final String BOARDING_PATH = "/boarding";
 }
 

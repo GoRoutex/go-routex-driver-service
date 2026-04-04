@@ -52,7 +52,6 @@ public class TripManifestController {
         return ResponseEntity.ok(response);
     }
 
-
     private RequestContext toContext(BaseRequest request) {
         return RequestContext.builder()
                 .requestId(request.getRequestId())
