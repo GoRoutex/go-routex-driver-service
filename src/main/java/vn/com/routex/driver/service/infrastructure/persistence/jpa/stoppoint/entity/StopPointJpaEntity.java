@@ -36,8 +36,8 @@ public class StopPointJpaEntity extends AuditingJpaEntity {
     @Column(name = "LATITUDE")
     private BigDecimal latitude; // Vi Do
 
-    @Column(name = "LONGTITUDE")
-    private BigDecimal longtitude; // Kinh do
+    @Column(name = "LONGITUDE")
+    private BigDecimal longitude; // Kinh do
 
     @Enumerated(EnumType.STRING)
     @Column(name = "TYPE")

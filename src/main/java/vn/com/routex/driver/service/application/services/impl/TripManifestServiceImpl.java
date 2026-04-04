@@ -10,6 +10,7 @@ import vn.com.routex.driver.service.application.dto.manifest.TripManifestView;
 import vn.com.routex.driver.service.application.services.TripManifestService;
 import vn.com.routex.driver.service.domain.assignment.model.RouteAssignment;
 import vn.com.routex.driver.service.domain.assignment.port.RouteAssignmentRepositoryPort;
+import vn.com.routex.driver.service.domain.booking.BookingSeatStatus;
 import vn.com.routex.driver.service.domain.booking.model.Booking;
 import vn.com.routex.driver.service.domain.booking.model.BookingSeat;
 import vn.com.routex.driver.service.domain.booking.port.BookingRepositoryPort;
@@ -41,6 +42,10 @@ public class TripManifestServiceImpl implements TripManifestService {
     private final VehicleRepositoryPort vehicleRepositoryPort;
     private final RouteAssignmentRepositoryPort routeAssignmentRepositoryPort;
 
+    /**
+     * Fetching Trip Manifest for Driver/Admins
+     */
+
     @Override
     public TripManifestView getTripManifest(GetTripManifestQuery query) {
 
@@ -52,9 +57,7 @@ public class TripManifestServiceImpl implements TripManifestService {
                 .orElseThrow(() -> new BusinessException(query.context().requestId(), query.context().requestDateTime(), query.context().channel(),
                         ExceptionUtils.buildResultResponse(RECORD_NOT_FOUND, BOOKING_NOT_FOUND_MESSAGE)));
 
-        List<BookingSeat> bookingSeat = bookingSeatRepositoryPort.findByBookingId(booking.getId());
-
-        // Get Rioute Seat List for summary information
+        List<BookingSeat> bookingSeat = bookingSeatRepositoryPort.findByBookingIdAndStatus(booking.getId(), BookingSeatStatus.RESERVED);
 
         DriverProfile driverProfile = driverProfileRepositoryPort.findById(routeAssignment.getDriverId())
                 .orElseThrow(() -> new BusinessException(query.context().requestId(), query.context().requestDateTime(), query.context().channel(),
@@ -63,6 +66,10 @@ public class TripManifestServiceImpl implements TripManifestService {
         Vehicle vehicle = vehicleRepositoryPort.findById(routeAssignment.getVehicleId())
                 .orElseThrow(() -> new BusinessException(query.context().requestId(), query.context().requestDateTime(), query.context().channel(),
                         ExceptionUtils.buildResultResponse(RECORD_NOT_FOUND, VEHICLE_NOT_FOUND_MESSAGE)));
+
+
+
+        int bookedSeats = bookingSeat.size();
 
         return TripManifestView.builder()
                 .driverInfo(GetTripManifestDriverView.builder()
@@ -85,7 +92,5 @@ public class TripManifestServiceImpl implements TripManifestService {
                         .availableSeats(1)
                         .build())
                 .build();
-
-
     }
 }

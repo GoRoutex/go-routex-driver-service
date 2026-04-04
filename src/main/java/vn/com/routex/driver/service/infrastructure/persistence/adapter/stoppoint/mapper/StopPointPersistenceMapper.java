@@ -16,7 +16,7 @@ public class StopPointPersistenceMapper {
                 .name(entity.getName())
                 .address(entity.getAddress())
                 .latitude(entity.getLatitude())
-                .longtitude(entity.getLongtitude())
+                .longitude(entity.getLongitude())
                 .type(entity.getType())
                 .build();
         AuditPersistenceMapper.toDomain(domain, entity);
@@ -32,7 +32,7 @@ public class StopPointPersistenceMapper {
                 .name(domain.getName())
                 .address(domain.getAddress())
                 .latitude(domain.getLatitude())
-                .longtitude(domain.getLongtitude())
+                .longitude(domain.getLongitude())
                 .type(domain.getType())
                 .build();
         return entity;
