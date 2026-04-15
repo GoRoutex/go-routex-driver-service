@@ -2,8 +2,8 @@ package vn.com.routex.driver.service.infrastructure.persistence.jpa.user.reposit
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.user.entity.UserJpaEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.user.entity.UserEntity;
 
 @Repository
-public interface UserJpaRepository extends JpaRepository<UserJpaEntity, String> {
+public interface UserEntityRepository extends JpaRepository<UserEntity, String> {
 }

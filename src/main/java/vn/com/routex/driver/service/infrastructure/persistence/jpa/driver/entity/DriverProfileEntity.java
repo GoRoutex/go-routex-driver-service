@@ -24,7 +24,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @SuperBuilder(toBuilder = true)
 @Table(name = "DRIVER_PROFILE")
-public class DriverProfileJpaEntity extends AuditingJpaEntity {
+public class DriverProfileEntity extends AuditingJpaEntity {
 
     @Id
     private String id;

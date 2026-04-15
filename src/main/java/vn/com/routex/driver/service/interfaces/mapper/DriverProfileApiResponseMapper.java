@@ -1,8 +1,11 @@
 package vn.com.routex.driver.service.interfaces.mapper;
 
 import lombok.experimental.UtilityClass;
+import vn.com.routex.driver.service.application.dto.driver.CreateDriverProfileResult;
+import vn.com.routex.driver.service.application.dto.driver.DeleteDriverProfileResult;
 import vn.com.routex.driver.service.application.dto.driver.DriverProfileDetailsView;
-import vn.com.routex.driver.service.domain.driver.model.DriverProfile;
+import vn.com.routex.driver.service.application.dto.driver.UpdateDriverProfileResult;
+import vn.com.routex.driver.service.application.dto.driver.UpdateDriverStatusResult;
 import vn.com.routex.driver.service.interfaces.models.driver.request.CreateProfileRequest;
 import vn.com.routex.driver.service.interfaces.models.driver.request.DeleteProfileRequest;
 import vn.com.routex.driver.service.interfaces.models.driver.request.DriverProfileRequest;
@@ -25,56 +28,57 @@ public class DriverProfileApiResponseMapper {
         return ApiResult.builder().responseCode(SUCCESS_CODE).description(SUCCESS_MESSAGE).build();
     }
 
-    public UpdateProfileResponse toUpdateProfileResponse(UpdateProfileRequest request, DriverProfile profile) {
+    public UpdateProfileResponse toUpdateProfileResponse(UpdateProfileRequest request, UpdateDriverProfileResult profile) {
         return UpdateProfileResponse.builder()
                 .requestId(request.getRequestId())
                 .requestDateTime(request.getRequestDateTime())
                 .channel(request.getChannel())
                 .result(successResult())
                 .data(UpdateProfileResponse.UpdateProfileResponseData.builder()
-                        .driverId(profile.getId())
-                        .employeeCode(profile.getEmployeeCode())
-                        .emergencyContactName(profile.getEmergencyContactName())
-                        .emergencyContactPhone(profile.getEmergencyContactPhone())
-                        .status(profile.getStatus())
-                        .licenseClass(profile.getLicenseClass())
-                        .licenseNumber(profile.getLicenseNumber())
-                        .licenseIssueDate(profile.getLicenseIssueDate())
-                        .licenseExpiryDate(profile.getLicenseExpiryDate())
-                        .pointsDelta(profile.getPointsDelta())
-                        .pointsReason(profile.getPointsReason())
-                        .kycVerified(profile.getKycVerified())
-                        .trainingCompleted(profile.getTrainingCompleted())
-                        .note(profile.getNote())
+                        .driverId(profile.driverId())
+                        .employeeCode(profile.employeeCode())
+                        .emergencyContactName(profile.emergencyContactName())
+                        .emergencyContactPhone(profile.emergencyContactPhone())
+                        .status(profile.status())
+                        .licenseClass(profile.licenseClass())
+                        .licenseNumber(profile.licenseNumber())
+                        .licenseIssueDate(profile.licenseIssueDate())
+                        .licenseExpiryDate(profile.licenseExpiryDate())
+                        .pointsDelta(profile.pointsDelta())
+                        .pointsReason(profile.pointsReason())
+                        .kycVerified(profile.kycVerified())
+                        .trainingCompleted(profile.trainingCompleted())
+                        .note(profile.note())
                         .build())
                 .build();
     }
 
-    public CreateProfileResponse toCreateProfileResponse(CreateProfileRequest request, DriverProfile profile) {
+    public CreateProfileResponse toCreateProfileResponse(CreateProfileRequest request, CreateDriverProfileResult profile) {
         return CreateProfileResponse.builder()
                 .requestId(request.getRequestId())
                 .requestDateTime(request.getRequestDateTime())
                 .channel(request.getChannel())
                 .result(successResult())
                 .data(CreateProfileResponse.CreateProfileResponseData.builder()
-                        .userId(profile.getUserId())
-                        .employeeCode(profile.getEmployeeCode())
-                        .currentRouteId(profile.getCurrentRouteId())
-                        .emergencyContactName(profile.getEmergencyContactName())
-                        .emergencyContactPhone(profile.getEmergencyContactPhone())
-                        .status(profile.getStatus() != null ? profile.getStatus().name() : null)
-                        .operationStatus(profile.getOperationStatus() != null ? profile.getOperationStatus().name() : null)
-                        .rating(profile.getRating() != null ? profile.getRating() : 0.0)
-                        .totalTrips(profile.getTotalTrips() != null ? profile.getTotalTrips() : 0)
-                        .licenseClass(profile.getLicenseClass())
-                        .licenseNumber(profile.getLicenseNumber())
-                        .licenseIssueDate(profile.getLicenseIssueDate() != null ? profile.getLicenseIssueDate().toString() : null)
-                        .licenseExpiryDate(profile.getLicenseExpiryDate() != null ? profile.getLicenseExpiryDate().toString() : null)
-                        .pointsDelta(profile.getPointsDelta() != null ? profile.getPointsDelta() : 0)
-                        .pointsReason(profile.getPointsReason())
-                        .kycVerified(Boolean.TRUE.equals(profile.getKycVerified()))
-                        .trainingCompleted(Boolean.TRUE.equals(profile.getTrainingCompleted()))
-                        .note(profile.getNote())
+                        .userId(profile.userId())
+                        .driverCode(profile.driverCode())
+                        .employeeCode(profile.employeeCode())
+                        .currentRouteId(profile.currentRouteId())
+                        .emergencyContactName(profile.emergencyContactName())
+                        .emergencyContactPhone(profile.emergencyContactPhone())
+                        .status(profile.status() != null ? profile.status().name() : null)
+                        .operationStatus(profile.operationStatus() != null ? profile.operationStatus().name() : null)
+                        .rating(profile.rating() != null ? profile.rating() : 0.0)
+                        .totalTrips(profile.totalTrips() != null ? profile.totalTrips() : 0)
+                        .licenseClass(profile.licenseClass())
+                        .licenseNumber(profile.licenseNumber())
+                        .licenseIssueDate(profile.licenseIssueDate())
+                        .licenseExpiryDate(profile.licenseExpiryDate())
+                        .pointsDelta(profile.pointsDelta() != null ? profile.pointsDelta() : 0)
+                        .pointsReason(profile.pointsReason())
+                        .kycVerified(Boolean.TRUE.equals(profile.kycVerified()))
+                        .trainingCompleted(Boolean.TRUE.equals(profile.trainingCompleted()))
+                        .note(profile.note())
                         .build())
                 .build();
     }
@@ -88,7 +92,6 @@ public class DriverProfileApiResponseMapper {
                 .data(DriverProfileResponse.DriverProfileResponseData.builder()
                         .driverId(view.profile().getId())
                         .userId(view.profile().getUserId())
-                        .fullName(view.user().getFullName())
                         .phone(view.user().getPhoneNumber())
                         .email(view.user().getEmail())
                         .status(view.profile().getStatus())
@@ -100,30 +103,30 @@ public class DriverProfileApiResponseMapper {
                 .build();
     }
 
-    public DeleteProfileResponse toDeleteProfileResponse(DeleteProfileRequest request, DriverProfile profile) {
+    public DeleteProfileResponse toDeleteProfileResponse(DeleteProfileRequest request, DeleteDriverProfileResult profile) {
         return DeleteProfileResponse.builder()
                 .requestId(request.getRequestId())
                 .requestDateTime(request.getRequestDateTime())
                 .channel(request.getChannel())
                 .result(successResult())
                 .data(DeleteProfileResponse.DeleteProfileResponseData.builder()
-                        .driverId(profile.getId())
-                        .status(profile.getStatus())
-                        .operationStatus(profile.getOperationStatus())
+                        .driverId(profile.driverId())
+                        .status(profile.status())
+                        .operationStatus(profile.operationStatus())
                         .build())
                 .build();
     }
 
-    public UpdateDriverStatusResponse toUpdateDriverStatusResponse(UpdateDriverStatusRequest request, DriverProfile profile) {
+    public UpdateDriverStatusResponse toUpdateDriverStatusResponse(UpdateDriverStatusRequest request, UpdateDriverStatusResult profile) {
         return UpdateDriverStatusResponse.builder()
                 .requestId(request.getRequestId())
                 .requestDateTime(request.getRequestDateTime())
                 .channel(request.getChannel())
                 .result(successResult())
                 .data(UpdateDriverStatusResponse.UpdateDriverStatusResponseData.builder()
-                        .driverId(profile.getId())
-                        .status(profile.getStatus())
-                        .operationStatus(profile.getOperationStatus())
+                        .driverId(profile.driverId())
+                        .status(profile.status())
+                        .operationStatus(profile.operationStatus())
                         .build())
                 .build();
     }

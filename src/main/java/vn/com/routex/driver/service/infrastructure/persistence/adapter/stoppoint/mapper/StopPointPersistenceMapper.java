@@ -1,40 +1,52 @@
 package vn.com.routex.driver.service.infrastructure.persistence.adapter.stoppoint.mapper;
 
 import lombok.experimental.UtilityClass;
-import vn.com.routex.driver.service.domain.stoppoint.model.StopPoint;
+import vn.com.routex.driver.service.domain.operationpoint.model.OperationPoint;
 import vn.com.routex.driver.service.infrastructure.persistence.adapter.shared.mapper.AuditPersistenceMapper;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.stoppoint.entity.StopPointJpaEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.stoppoint.entity.OperationPointEntity;
 
 @UtilityClass
 public class StopPointPersistenceMapper {
-    public StopPoint toDomain(StopPointJpaEntity entity) {
-        if (entity == null) {
+    public OperationPoint toDomain(OperationPointEntity operationPointEntity) {
+        if (operationPointEntity == null) {
             return null;
         }
-        StopPoint domain = StopPoint.builder()
-                .id(entity.getId())
-                .name(entity.getName())
-                .address(entity.getAddress())
-                .latitude(entity.getLatitude())
-                .longitude(entity.getLongitude())
-                .type(entity.getType())
+        OperationPoint domain = OperationPoint.builder()
+                .id(operationPointEntity.getId())
+                .merchantId(operationPointEntity.getMerchantId())
+                .code(operationPointEntity.getCode())
+                .name(operationPointEntity.getName())
+                .type(operationPointEntity.getType())
+                .address(operationPointEntity.getAddress())
+                .city(operationPointEntity.getCity())
+                .latitude(operationPointEntity.getLatitude())
+                .longitude(operationPointEntity.getLongitude())
+                .status(operationPointEntity.getStatus())
                 .build();
-        AuditPersistenceMapper.toDomain(domain, entity);
+
+        AuditPersistenceMapper.toDomain(domain, operationPointEntity);
         return domain;
     }
 
-    public StopPointJpaEntity toEntity(StopPoint domain) {
-        if (domain == null) {
+    public OperationPointEntity toEntity(OperationPoint operationPoint) {
+        if (operationPoint == null) {
             return null;
         }
-        StopPointJpaEntity entity = StopPointJpaEntity.builder()
-                .id(domain.getId())
-                .name(domain.getName())
-                .address(domain.getAddress())
-                .latitude(domain.getLatitude())
-                .longitude(domain.getLongitude())
-                .type(domain.getType())
+        return OperationPointEntity.builder()
+                .id(operationPoint.getId())
+                .merchantId(operationPoint.getMerchantId())
+                .code(operationPoint.getCode())
+                .name(operationPoint.getName())
+                .type(operationPoint.getType())
+                .address(operationPoint.getAddress())
+                .city(operationPoint.getCity())
+                .latitude(operationPoint.getLatitude())
+                .longitude(operationPoint.getLongitude())
+                .status(operationPoint.getStatus())
+                .createdAt(operationPoint.getCreatedAt())
+                .createdBy(operationPoint.getCreatedBy())
+                .updatedAt(operationPoint.getUpdatedAt())
+                .updatedBy(operationPoint.getUpdatedBy())
                 .build();
-        return entity;
     }
 }

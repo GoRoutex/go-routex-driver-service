@@ -1,4 +1,4 @@
-package vn.com.routex.driver.service.domain.stoppoint.model;
+package vn.com.routex.driver.service.domain.routestop.model;
 
 
 import lombok.AllArgsConstructor;
@@ -15,23 +15,18 @@ import java.time.OffsetDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class RouteStop extends AbstractAuditingEntity {
-
+public class RouteStopPlan extends AbstractAuditingEntity {
     private String id;
-
     private String routeId;
-
-    private String stopPointId;
-
-    private String stopOrder;
-
+    private String creator;
+    private int stopOrder;
     private OffsetDateTime plannedArrivalTime;
-
     private OffsetDateTime plannedDepartureTime;
-
-    private OffsetDateTime actualArrivalTime;
-
-    private OffsetDateTime actualDepartureTime;
-
     private String note;
+    private String operationPointId;
+    private String stopName;
+    private String stopAddress;
+    private String stopCity;
+    private Double stopLatitude;
+    private Double stopLongitude;
 }

@@ -11,35 +11,47 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-import vn.com.routex.driver.service.domain.stoppoint.model.StopType;
+import vn.com.routex.driver.service.domain.operationpoint.model.OperationPointStatus;
+import vn.com.routex.driver.service.domain.operationpoint.model.OperationPointType;
 import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AuditingJpaEntity;
 
-import java.math.BigDecimal;
-
 @Entity
-@Table(name = "STOP_POINT")
+@Table(name = "OPERATION_POINT")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder(toBuilder = true)
-public class StopPointJpaEntity extends AuditingJpaEntity {
+public class OperationPointEntity extends AuditingJpaEntity {
     @Id
     private String id;
+
+    @Column(name = "MERCHANT_ID")
+    private String merchantId;
+
+    @Column(name = "CODE")
+    private String code;
 
     @Column(name = "NAME")
     private String name;
 
+    @Column(name = "TYPE")
+    @Enumerated(EnumType.STRING)
+    private OperationPointType type;
+
     @Column(name = "ADDRESS")
     private String address;
 
+    @Column(name = "CITY")
+    private String city;
+
     @Column(name = "LATITUDE")
-    private BigDecimal latitude; // Vi Do
+    private Double latitude;
 
     @Column(name = "LONGITUDE")
-    private BigDecimal longitude; // Kinh do
+    private Double longitude;
 
+    @Column(name = "STATUS")
     @Enumerated(EnumType.STRING)
-    @Column(name = "TYPE")
-    private StopType type;
+    private OperationPointStatus status;
 }

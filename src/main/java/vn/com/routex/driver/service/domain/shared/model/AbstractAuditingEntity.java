@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 /**
  * Domain-level audit metadata.
@@ -20,8 +21,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public abstract class AbstractAuditingEntity {
-    private LocalDateTime createdAt;
+    private OffsetDateTime createdAt;
     private String createdBy;
     private String updatedBy;
-    private LocalDateTime updatedAt;
+    private OffsetDateTime updatedAt;
 }

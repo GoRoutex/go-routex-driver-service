@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
+import vn.com.go.routex.identity.security.log.SystemLog;
 import vn.com.routex.driver.service.application.services.DriverProfileService;
 import vn.com.routex.driver.service.interfaces.mapper.DriverProfileApiMapper;
 import vn.com.routex.driver.service.interfaces.mapper.DriverProfileApiResponseMapper;
@@ -40,6 +41,7 @@ import static vn.com.routex.driver.service.interfaces.controller.constant.ApiCon
 public class DriverManagementController {
 
     private final DriverProfileService driverProfileService;
+    private final SystemLog sLog = SystemLog.getLogger(this.getClass());
 
     @InitBinder
     public void initBinder(WebDataBinder webDataBinder, WebRequest webRequest) {
@@ -48,7 +50,8 @@ public class DriverManagementController {
 
 
     @PostMapping(CREATE_PROFILE)
-    public ResponseEntity<CreateProfileResponse> updateDriverProfile(@Valid @RequestBody CreateProfileRequest request) {
+    public ResponseEntity<CreateProfileResponse> createDriverProfile(@Valid @RequestBody CreateProfileRequest request) {
+        sLog.info("[UPDATE-PROFILE] Update Driver Profile Request: {}", request);
         var profile = driverProfileService.create(DriverProfileApiMapper.toCommand(request));
         return ResponseEntity.ok(DriverProfileApiResponseMapper.toCreateProfileResponse(request, profile));
     }

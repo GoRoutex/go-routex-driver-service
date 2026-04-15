@@ -9,9 +9,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import vn.com.routex.driver.service.domain.shared.model.AbstractAuditingEntity;
 import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AuditingJpaEntity;
 
 import java.time.OffsetDateTime;
+
 
 @Getter
 @Setter
@@ -19,17 +21,16 @@ import java.time.OffsetDateTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "ROUTE_STOP")
-@SuperBuilder(toBuilder = true)
-public class RouteStopJpaEntity extends AuditingJpaEntity {
-
+@SuperBuilder
+public class RouteStopEntity extends AuditingJpaEntity {
     @Id
     private String id;
 
     @Column(name = "ROUTE_ID")
     private String routeId;
 
-    @Column(name = "STOP_POINT_ID")
-    private String stopPointId;
+    @Column(name = "CREATOR")
+    private String creator;
 
     @Column(name = "STOP_ORDER")
     private String stopOrder;
@@ -48,4 +49,22 @@ public class RouteStopJpaEntity extends AuditingJpaEntity {
 
     @Column(name = "NOTE")
     private String note;
+
+    @Column(name = "OPERATION_POINT_ID")
+    private String operationPointId;
+
+    @Column(name = "STOP_NAME")
+    private String stopName;
+
+    @Column(name = "STOP_ADDRESS")
+    private String stopAddress;
+
+    @Column(name = "STOP_CITY")
+    private String stopCity;
+
+    @Column(name = "STOP_LATITUDE")
+    private Double stopLatitude;
+
+    @Column(name = "STOP_LONGITUDE")
+    private Double stopLongitude;
 }
