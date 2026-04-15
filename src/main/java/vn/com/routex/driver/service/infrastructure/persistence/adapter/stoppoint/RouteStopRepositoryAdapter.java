@@ -2,25 +2,25 @@ package vn.com.routex.driver.service.infrastructure.persistence.adapter.stoppoin
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import vn.com.routex.driver.service.domain.stoppoint.model.RouteStop;
-import vn.com.routex.driver.service.domain.stoppoint.port.RouteStopRepositoryPort;
+import vn.com.routex.driver.service.domain.routestop.model.RouteStopPlan;
+import vn.com.routex.driver.service.domain.routestop.port.RouteStopRepositoryPort;
 import vn.com.routex.driver.service.infrastructure.persistence.adapter.stoppoint.mapper.RouteStopPersistenceMapper;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.stoppoint.repository.RouteStopJpaRepository;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.stoppoint.repository.RouteStopEntityRepository;
 
 import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
 public class RouteStopRepositoryAdapter implements RouteStopRepositoryPort {
-    private final RouteStopJpaRepository routeStopJpaRepository;
+    private final RouteStopEntityRepository routeStopEntityRepository;
 
     @Override
-    public Optional<RouteStop> findById(String id) {
-        return routeStopJpaRepository.findById(id).map(RouteStopPersistenceMapper::toDomain);
+    public Optional<RouteStopPlan> findById(String id) {
+        return routeStopEntityRepository.findById(id).map(RouteStopPersistenceMapper::toDomain);
     }
 
     @Override
-    public RouteStop save(RouteStop routeStop) {
-        return RouteStopPersistenceMapper.toDomain(routeStopJpaRepository.save(RouteStopPersistenceMapper.toEntity(routeStop)));
+    public RouteStopPlan save(RouteStopPlan routeStopPlan) {
+        return RouteStopPersistenceMapper.toDomain(routeStopEntityRepository.save(RouteStopPersistenceMapper.toEntity(routeStopPlan)));
     }
 }

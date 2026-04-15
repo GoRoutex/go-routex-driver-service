@@ -2,59 +2,70 @@ package vn.com.routex.driver.service.infrastructure.persistence.adapter.user.map
 
 import lombok.experimental.UtilityClass;
 import vn.com.routex.driver.service.domain.user.model.User;
-import vn.com.routex.driver.service.infrastructure.persistence.adapter.shared.mapper.AuditPersistenceMapper;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.user.entity.UserJpaEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.user.entity.UserEntity;
 
 @UtilityClass
 public class UserPersistenceMapper {
-    public User toDomain(UserJpaEntity entity) {
-        if (entity == null) {
+    public User toDomain(UserEntity userEntity) {
+        if (userEntity == null) {
             return null;
         }
-        User domain = User.builder()
-                .id(entity.getId())
-                .username(entity.getUsername())
-                .fullName(entity.getFullName())
-                .passwordHash(entity.getPasswordHash())
-                .dob(entity.getDob())
-                .phoneNumber(entity.getPhoneNumber())
-                .phoneVerified(entity.getPhoneVerified())
-                .email(entity.getEmail())
-                .emailVerified(entity.getEmailVerified())
-                .status(entity.getStatus())
-                .tenantId(entity.getTenantId())
-                .language(entity.getLanguage())
-                .timezone(entity.getTimezone())
-                .failLoginCount(entity.getFailLoginCount())
-                .lastLoginAt(entity.getLastLoginAt())
-                .lockedUntil(entity.getLockedUntil())
+
+        return User.builder()
+                .id(userEntity.getId())
+                .passwordHash(userEntity.getPasswordHash())
+                .dob(userEntity.getDob())
+                .phoneNumber(userEntity.getPhoneNumber())
+                .phoneVerified(userEntity.getPhoneVerified())
+                .nationalId(userEntity.getNationalId())
+                .address(userEntity.getAddress())
+                .avatarUrl(userEntity.getAvatarUrl())
+                .gender(userEntity.getGender())
+                .email(userEntity.getEmail())
+                .emailVerified(userEntity.getEmailVerified())
+                .status(userEntity.getStatus())
+                .tenantId(userEntity.getTenantId())
+                .language(userEntity.getLanguage())
+                .timezone(userEntity.getTimezone())
+                .failLoginCount(userEntity.getFailLoginCount())
+                .lastLoginAt(userEntity.getLastLoginAt())
+                .lockedUntil(userEntity.getLockedUntil())
+                .createdAt(userEntity.getCreatedAt())
+                .createdBy(userEntity.getCreatedBy())
+                .updatedAt(userEntity.getUpdatedAt())
+                .updatedBy(userEntity.getUpdatedBy())
+                .profileCompleted(userEntity.getProfileCompleted())
                 .build();
-        AuditPersistenceMapper.toDomain(domain, entity);
-        return domain;
     }
 
-    public UserJpaEntity toEntity(User domain) {
-        if (domain == null) {
+    public UserEntity toEntity(User user) {
+        if (user == null) {
             return null;
         }
-        UserJpaEntity entity = UserJpaEntity.builder()
-                .id(domain.getId())
-                .username(domain.getUsername())
-                .fullName(domain.getFullName())
-                .passwordHash(domain.getPasswordHash())
-                .dob(domain.getDob())
-                .phoneNumber(domain.getPhoneNumber())
-                .phoneVerified(domain.getPhoneVerified())
-                .email(domain.getEmail())
-                .emailVerified(domain.getEmailVerified())
-                .status(domain.getStatus())
-                .tenantId(domain.getTenantId())
-                .language(domain.getLanguage())
-                .timezone(domain.getTimezone())
-                .failLoginCount(domain.getFailLoginCount())
-                .lastLoginAt(domain.getLastLoginAt())
-                .lockedUntil(domain.getLockedUntil())
+        return UserEntity.builder()
+                .id(user.getId())
+                .passwordHash(user.getPasswordHash())
+                .dob(user.getDob())
+                .phoneNumber(user.getPhoneNumber())
+                .phoneVerified(user.getPhoneVerified())
+                .nationalId(user.getNationalId())
+                .address(user.getAddress())
+                .avatarUrl(user.getAvatarUrl())
+                .gender(user.getGender())
+                .email(user.getEmail())
+                .emailVerified(user.getEmailVerified())
+                .status(user.getStatus())
+                .tenantId(user.getTenantId())
+                .language(user.getLanguage())
+                .timezone(user.getTimezone())
+                .failLoginCount(user.getFailLoginCount())
+                .lastLoginAt(user.getLastLoginAt())
+                .lockedUntil(user.getLockedUntil())
+                .createdAt(user.getCreatedAt())
+                .createdBy(user.getCreatedBy())
+                .updatedAt(user.getUpdatedAt())
+                .updatedBy(user.getUpdatedBy())
+                .profileCompleted(user.getProfileCompleted())
                 .build();
-        return entity;
     }
 }

@@ -3,11 +3,11 @@ package vn.com.routex.driver.service.infrastructure.persistence.adapter.driver.m
 import lombok.experimental.UtilityClass;
 import vn.com.routex.driver.service.domain.driver.model.DriverProfile;
 import vn.com.routex.driver.service.infrastructure.persistence.adapter.shared.mapper.AuditPersistenceMapper;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.driver.entity.DriverProfileJpaEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.driver.entity.DriverProfileEntity;
 
 @UtilityClass
 public class DriverProfilePersistenceMapper {
-    public DriverProfile toDomain(DriverProfileJpaEntity entity) {
+    public DriverProfile toDomain(DriverProfileEntity entity) {
         if (entity == null) {
             return null;
         }
@@ -36,11 +36,11 @@ public class DriverProfilePersistenceMapper {
         return domain;
     }
 
-    public DriverProfileJpaEntity toEntity(DriverProfile domain) {
+    public DriverProfileEntity toEntity(DriverProfile domain) {
         if (domain == null) {
             return null;
         }
-        return DriverProfileJpaEntity.builder()
+        return DriverProfileEntity.builder()
                 .id(domain.getId())
                 .userId(domain.getUserId())
                 .currentRouteId(domain.getCurrentRouteId())

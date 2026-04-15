@@ -1,4 +1,4 @@
-package vn.com.routex.driver.service.domain.stoppoint.model;
+package vn.com.routex.driver.service.domain.operationpoint.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,16 +14,15 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class StopPoint extends AbstractAuditingEntity {
+public class OperationPoint extends AbstractAuditingEntity {
     private String id;
-
+    private String code;
     private String name;
-
+    private String merchantId;
+    private OperationPointType type;
     private String address;
-
-    private BigDecimal latitude; // Vi Do
-
-    private BigDecimal longitude; // Kinh do
-
-    private StopType type;
+    private String city;
+    private Double latitude;
+    private Double longitude;
+    private OperationPointStatus status;
 }
