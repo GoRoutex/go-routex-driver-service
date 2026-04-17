@@ -21,7 +21,7 @@ import vn.com.routex.driver.service.domain.route.port.RouteRepositoryPort;
 import vn.com.routex.driver.service.domain.vehicle.model.Vehicle;
 import vn.com.routex.driver.service.domain.vehicle.port.VehicleRepositoryPort;
 import vn.com.routex.driver.service.infrastructure.persistence.exceptions.BusinessException;
-import vn.com.routex.driver.service.infrastructure.utils.ExceptionUtils;
+import vn.com.routex.driver.service.infrastructure.persistence.utils.ExceptionUtils;
 
 import java.util.List;
 

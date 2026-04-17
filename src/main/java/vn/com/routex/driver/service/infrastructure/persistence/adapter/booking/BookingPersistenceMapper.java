@@ -4,13 +4,13 @@ package vn.com.routex.driver.service.infrastructure.persistence.adapter.booking;
 import lombok.experimental.UtilityClass;
 import vn.com.routex.driver.service.domain.booking.model.Booking;
 import vn.com.routex.driver.service.infrastructure.persistence.adapter.shared.mapper.AuditPersistenceMapper;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.booking.entity.BookingJpaEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.booking.entity.BookingEntityAbstract;
 
 @UtilityClass
 public class BookingPersistenceMapper {
 
 
-    public Booking toDomain(BookingJpaEntity entity) {
+    public Booking toDomain(BookingEntityAbstract entity) {
         if(entity == null) {
              return null;
         }
@@ -36,12 +36,12 @@ public class BookingPersistenceMapper {
     }
 
 
-    public BookingJpaEntity toEntity(Booking domain) {
+    public BookingEntityAbstract toEntity(Booking domain) {
         if(domain == null) {
             return null;
         }
 
-        return BookingJpaEntity.builder()
+        return BookingEntityAbstract.builder()
                 .id(domain.getId())
                 .bookingCode(domain.getBookingCode())
                 .routeId(domain.getRouteId())

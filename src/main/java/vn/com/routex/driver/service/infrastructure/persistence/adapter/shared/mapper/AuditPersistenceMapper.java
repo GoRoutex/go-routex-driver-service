@@ -1,12 +1,11 @@
 package vn.com.routex.driver.service.infrastructure.persistence.adapter.shared.mapper;
 
 import lombok.experimental.UtilityClass;
-import vn.com.routex.driver.service.domain.shared.model.AbstractAuditingEntity;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AuditingJpaEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AbstractAuditingEntity;
 
 @UtilityClass
 public class AuditPersistenceMapper {
-    public void toDomain(AbstractAuditingEntity domain, AuditingJpaEntity entity) {
+    public void toDomain(vn.com.routex.driver.service.domain.shared.model.AbstractAuditingEntity domain, AbstractAuditingEntity entity) {
         if (domain == null || entity == null) {
             return;
         }
@@ -16,7 +15,7 @@ public class AuditPersistenceMapper {
         domain.setUpdatedAt(entity.getUpdatedAt());
     }
 
-    public void toEntity(AuditingJpaEntity entity, AbstractAuditingEntity domain) {
+    public void toEntity(AbstractAuditingEntity entity, vn.com.routex.driver.service.domain.shared.model.AbstractAuditingEntity domain) {
         if (entity == null || domain == null) {
             return;
         }

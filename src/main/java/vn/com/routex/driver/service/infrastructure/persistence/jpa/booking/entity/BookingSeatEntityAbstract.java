@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import vn.com.routex.driver.service.domain.booking.BookingSeatStatus;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AuditingJpaEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AbstractAuditingEntity;
 
 import java.math.BigDecimal;
 
@@ -23,7 +23,7 @@ import java.math.BigDecimal;
 @SuperBuilder
 @Entity
 @Table(name = "BOOKING_SEAT")
-public class BookingSeatJpaEntity extends AuditingJpaEntity {
+public class BookingSeatEntityAbstract extends AbstractAuditingEntity {
 
     @Id
     private String id;

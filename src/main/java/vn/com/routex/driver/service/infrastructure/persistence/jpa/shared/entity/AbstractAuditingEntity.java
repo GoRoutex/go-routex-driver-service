@@ -14,7 +14,6 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 
 /**
@@ -28,7 +27,7 @@ import java.time.OffsetDateTime;
 @SuperBuilder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public abstract class AuditingJpaEntity {
+public abstract class AbstractAuditingEntity {
 
     @CreatedDate
     @Column(name = "created_at")

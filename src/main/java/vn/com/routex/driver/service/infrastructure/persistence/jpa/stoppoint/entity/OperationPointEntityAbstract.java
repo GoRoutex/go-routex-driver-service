@@ -13,7 +13,7 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import vn.com.routex.driver.service.domain.operationpoint.model.OperationPointStatus;
 import vn.com.routex.driver.service.domain.operationpoint.model.OperationPointType;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AuditingJpaEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AbstractAuditingEntity;
 
 @Entity
 @Table(name = "OPERATION_POINT")
@@ -22,7 +22,7 @@ import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder(toBuilder = true)
-public class OperationPointEntity extends AuditingJpaEntity {
+public class OperationPointEntityAbstract extends AbstractAuditingEntity {
     @Id
     private String id;
 

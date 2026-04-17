@@ -3,11 +3,11 @@ package vn.com.routex.driver.service.infrastructure.persistence.adapter.stoppoin
 import lombok.experimental.UtilityClass;
 import vn.com.routex.driver.service.domain.operationpoint.model.OperationPoint;
 import vn.com.routex.driver.service.infrastructure.persistence.adapter.shared.mapper.AuditPersistenceMapper;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.stoppoint.entity.OperationPointEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.stoppoint.entity.OperationPointEntityAbstract;
 
 @UtilityClass
 public class StopPointPersistenceMapper {
-    public OperationPoint toDomain(OperationPointEntity operationPointEntity) {
+    public OperationPoint toDomain(OperationPointEntityAbstract operationPointEntity) {
         if (operationPointEntity == null) {
             return null;
         }
@@ -28,11 +28,11 @@ public class StopPointPersistenceMapper {
         return domain;
     }
 
-    public OperationPointEntity toEntity(OperationPoint operationPoint) {
+    public OperationPointEntityAbstract toEntity(OperationPoint operationPoint) {
         if (operationPoint == null) {
             return null;
         }
-        return OperationPointEntity.builder()
+        return OperationPointEntityAbstract.builder()
                 .id(operationPoint.getId())
                 .merchantId(operationPoint.getMerchantId())
                 .code(operationPoint.getCode())

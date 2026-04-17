@@ -13,7 +13,7 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import vn.com.routex.driver.service.domain.driver.model.DriverStatus;
 import vn.com.routex.driver.service.domain.driver.model.OperationStatus;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AuditingJpaEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AbstractAuditingEntity;
 
 import java.time.LocalDate;
 
@@ -24,7 +24,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @SuperBuilder(toBuilder = true)
 @Table(name = "DRIVER_PROFILE")
-public class DriverProfileEntity extends AuditingJpaEntity {
+public class DriverProfileEntityAbstract extends AbstractAuditingEntity {
 
     @Id
     private String id;

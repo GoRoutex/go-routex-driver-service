@@ -2,8 +2,8 @@ package vn.com.routex.driver.service.infrastructure.persistence.jpa.vehicle.repo
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.vehicle.entity.VehicleJpaEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.vehicle.entity.VehicleEntityAbstract;
 
 @Repository
-public interface VehicleJpaRepository extends JpaRepository<VehicleJpaEntity, String> {
+public interface VehicleJpaRepository extends JpaRepository<VehicleEntityAbstract, String> {
 }

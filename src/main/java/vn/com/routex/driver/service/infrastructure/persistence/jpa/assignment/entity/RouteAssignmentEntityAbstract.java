@@ -11,7 +11,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import vn.com.routex.driver.service.domain.assignment.model.RouteAssignmentStatus;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AuditingJpaEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AbstractAuditingEntity;
 
 import java.time.OffsetDateTime;
 
@@ -21,7 +21,7 @@ import java.time.OffsetDateTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "ROUTE_ASSIGNMENT")
-public class RouteAssignmentJpaEntity extends AuditingJpaEntity {
+public class RouteAssignmentEntityAbstract extends AbstractAuditingEntity {
     @Id
     private String id;
 

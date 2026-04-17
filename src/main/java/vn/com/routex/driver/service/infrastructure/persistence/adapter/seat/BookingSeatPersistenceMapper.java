@@ -3,14 +3,13 @@ package vn.com.routex.driver.service.infrastructure.persistence.adapter.seat;
 import lombok.experimental.UtilityClass;
 import vn.com.routex.driver.service.domain.booking.model.BookingSeat;
 import vn.com.routex.driver.service.infrastructure.persistence.adapter.shared.mapper.AuditPersistenceMapper;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.booking.entity.BookingJpaEntity;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.booking.entity.BookingSeatJpaEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.booking.entity.BookingSeatEntityAbstract;
 
 import java.util.List;
 
 @UtilityClass
 public class BookingSeatPersistenceMapper {
-    public BookingSeat toDomain(BookingSeatJpaEntity entity) {
+    public BookingSeat toDomain(BookingSeatEntityAbstract entity) {
         if(entity == null) {
             return null;
         }
@@ -30,7 +29,7 @@ public class BookingSeatPersistenceMapper {
 
 
 
-    public List<BookingSeat> toListDomain(List<BookingSeatJpaEntity> entities) {
+    public List<BookingSeat> toListDomain(List<BookingSeatEntityAbstract> entities) {
         if(entities == null) {
              return null;
         }
@@ -40,7 +39,7 @@ public class BookingSeatPersistenceMapper {
                 .toList();
     }
 
-    public List<BookingSeatJpaEntity> toListEntity(List<BookingSeat> domainList) {
+    public List<BookingSeatEntityAbstract> toListEntity(List<BookingSeat> domainList) {
         if(domainList == null) {
              return null;
         }
@@ -49,12 +48,12 @@ public class BookingSeatPersistenceMapper {
                 .toList();
     }
 
-    public BookingSeatJpaEntity toEntity(BookingSeat domain) {
+    public BookingSeatEntityAbstract toEntity(BookingSeat domain) {
         if(domain == null) {
             return null;
         }
 
-        return BookingSeatJpaEntity.builder()
+        return BookingSeatEntityAbstract.builder()
                 .id(domain.getId())
                 .bookingId(domain.getBookingId())
                 .routeId(domain.getRouteId())

@@ -7,8 +7,6 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import vn.com.routex.driver.service.domain.shared.model.AbstractAuditingEntity;
 
-import java.math.BigDecimal;
-
 @Getter
 @Setter
 @AllArgsConstructor

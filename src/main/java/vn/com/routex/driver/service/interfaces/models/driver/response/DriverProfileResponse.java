@@ -9,7 +9,6 @@ import vn.com.routex.driver.service.domain.driver.model.DriverStatus;
 import vn.com.routex.driver.service.domain.driver.model.OperationStatus;
 import vn.com.routex.driver.service.interfaces.models.base.BaseResponse;
 
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 
 @Getter

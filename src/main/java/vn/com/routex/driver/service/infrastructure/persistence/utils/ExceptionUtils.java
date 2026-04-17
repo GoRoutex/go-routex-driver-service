@@ -1,7 +1,7 @@
-package vn.com.routex.driver.service.infrastructure.utils;
+package vn.com.routex.driver.service.infrastructure.persistence.utils;
 
-import vn.com.routex.driver.service.interfaces.models.result.ApiResult;
 import lombok.experimental.UtilityClass;
+import vn.com.routex.driver.service.interfaces.models.result.ApiResult;
 
 @UtilityClass
 public class ExceptionUtils {

@@ -1,9 +1,9 @@
 package vn.com.routex.driver.service.infrastructure.persistence.exceptions;
 
-import vn.com.routex.driver.service.interfaces.models.result.ApiResult;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import vn.com.routex.driver.service.interfaces.models.result.ApiResult;
 
 @Data
 @Builder(toBuilder = true)
