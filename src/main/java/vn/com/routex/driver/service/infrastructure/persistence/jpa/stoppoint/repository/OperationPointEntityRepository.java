@@ -2,8 +2,8 @@ package vn.com.routex.driver.service.infrastructure.persistence.jpa.stoppoint.re
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.stoppoint.entity.OperationPointEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.stoppoint.entity.OperationPointEntityAbstract;
 
 @Repository
-public interface OperationPointEntityRepository extends JpaRepository<OperationPointEntity, String> {
+public interface OperationPointEntityRepository extends JpaRepository<OperationPointEntityAbstract, String> {
 }

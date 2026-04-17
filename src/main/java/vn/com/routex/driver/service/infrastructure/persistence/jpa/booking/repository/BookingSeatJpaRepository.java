@@ -2,11 +2,11 @@ package vn.com.routex.driver.service.infrastructure.persistence.jpa.booking.repo
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import vn.com.routex.driver.service.domain.booking.BookingSeatStatus;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.booking.entity.BookingSeatJpaEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.booking.entity.BookingSeatEntityAbstract;
 
 import java.util.List;
 
-public interface BookingSeatJpaRepository extends JpaRepository<BookingSeatJpaEntity, String> {
-    List<BookingSeatJpaEntity> findByBookingId(String bookingId);
-    List<BookingSeatJpaEntity> findByBookingIdAndStatus(String id, BookingSeatStatus bookingSeatStatus);
+public interface BookingSeatJpaRepository extends JpaRepository<BookingSeatEntityAbstract, String> {
+    List<BookingSeatEntityAbstract> findByBookingId(String bookingId);
+    List<BookingSeatEntityAbstract> findByBookingIdAndStatus(String id, BookingSeatStatus bookingSeatStatus);
 }

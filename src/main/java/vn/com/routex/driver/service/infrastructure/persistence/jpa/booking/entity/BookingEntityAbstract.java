@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import vn.com.routex.driver.service.domain.booking.BookingStatus;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AuditingJpaEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AbstractAuditingEntity;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -24,7 +24,7 @@ import java.time.OffsetDateTime;
 @SuperBuilder
 @Entity
 @Table(name = "BOOKING")
-public class BookingJpaEntity extends AuditingJpaEntity {
+public class BookingEntityAbstract extends AbstractAuditingEntity {
     @Id
     private String id;
 

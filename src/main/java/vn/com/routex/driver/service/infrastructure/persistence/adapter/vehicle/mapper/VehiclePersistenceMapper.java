@@ -3,11 +3,11 @@ package vn.com.routex.driver.service.infrastructure.persistence.adapter.vehicle.
 import lombok.experimental.UtilityClass;
 import vn.com.routex.driver.service.domain.vehicle.model.Vehicle;
 import vn.com.routex.driver.service.infrastructure.persistence.adapter.shared.mapper.AuditPersistenceMapper;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.vehicle.entity.VehicleJpaEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.vehicle.entity.VehicleEntityAbstract;
 
 @UtilityClass
 public class VehiclePersistenceMapper {
-    public Vehicle toDomain(VehicleJpaEntity entity) {
+    public Vehicle toDomain(VehicleEntityAbstract entity) {
         if (entity == null) {
             return null;
         }
@@ -23,11 +23,11 @@ public class VehiclePersistenceMapper {
         return domain;
     }
 
-    public VehicleJpaEntity toEntity(Vehicle domain) {
+    public VehicleEntityAbstract toEntity(Vehicle domain) {
         if (domain == null) {
             return null;
         }
-        VehicleJpaEntity entity = new VehicleJpaEntity();
+        VehicleEntityAbstract entity = new VehicleEntityAbstract();
         entity.setId(domain.getId());
         entity.setStatus(domain.getStatus());
         entity.setType(domain.getType());

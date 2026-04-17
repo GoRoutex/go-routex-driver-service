@@ -27,7 +27,7 @@ import java.time.OffsetDateTime;
 @SuperBuilder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public abstract class AuditingJpaEntity {
+public abstract class AbstractAuditingEntity {
 
     @CreatedDate
     @Column(name = "created_at")

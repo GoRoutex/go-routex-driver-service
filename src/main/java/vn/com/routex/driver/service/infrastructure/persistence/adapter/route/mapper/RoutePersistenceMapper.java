@@ -3,11 +3,11 @@ package vn.com.routex.driver.service.infrastructure.persistence.adapter.route.ma
 import lombok.experimental.UtilityClass;
 import vn.com.routex.driver.service.domain.route.model.Route;
 import vn.com.routex.driver.service.infrastructure.persistence.adapter.shared.mapper.AuditPersistenceMapper;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.route.entity.RouteJpaEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.route.entity.RouteEntityAbstract;
 
 @UtilityClass
 public class RoutePersistenceMapper {
-    public Route toDomain(RouteJpaEntity entity) {
+    public Route toDomain(RouteEntityAbstract entity) {
         if (entity == null) {
             return null;
         }
@@ -26,11 +26,11 @@ public class RoutePersistenceMapper {
         return domain;
     }
 
-    public RouteJpaEntity toEntity(Route domain) {
+    public RouteEntityAbstract toEntity(Route domain) {
         if (domain == null) {
             return null;
         }
-        RouteJpaEntity entity = new RouteJpaEntity();
+        RouteEntityAbstract entity = new RouteEntityAbstract();
         entity.setId(domain.getId());
         entity.setRouteCode(domain.getRouteCode());
         entity.setOrigin(domain.getOrigin());

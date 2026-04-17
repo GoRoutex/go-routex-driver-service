@@ -3,11 +3,11 @@ package vn.com.routex.driver.service.infrastructure.persistence.adapter.stoppoin
 import lombok.experimental.UtilityClass;
 import vn.com.routex.driver.service.domain.routestop.model.RouteStopPlan;
 import vn.com.routex.driver.service.infrastructure.persistence.adapter.shared.mapper.AuditPersistenceMapper;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.stoppoint.entity.RouteStopEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.stoppoint.entity.RouteStopEntityAbstract;
 
 @UtilityClass
 public class RouteStopPersistenceMapper {
-    public RouteStopPlan toDomain(RouteStopEntity entity) {
+    public RouteStopPlan toDomain(RouteStopEntityAbstract entity) {
         if (entity == null) {
             return null;
         }
@@ -31,11 +31,11 @@ public class RouteStopPersistenceMapper {
         return domain;
     }
 
-    public RouteStopEntity toEntity(RouteStopPlan domain) {
+    public RouteStopEntityAbstract toEntity(RouteStopPlan domain) {
         if (domain == null) {
             return null;
         }
-        return RouteStopEntity.builder()
+        return RouteStopEntityAbstract.builder()
                 .id(domain.getId())
                 .routeId(domain.getRouteId())
                 .creator(domain.getCreator())

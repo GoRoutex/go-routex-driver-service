@@ -2,12 +2,12 @@ package vn.com.routex.driver.service.infrastructure.persistence.jpa.assignment.r
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.assignment.entity.RouteAssignmentJpaEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.assignment.entity.RouteAssignmentEntityAbstract;
 
 import java.util.Optional;
 
 @Repository
-public interface RouteAssignmentJpaRepository extends JpaRepository<RouteAssignmentJpaEntity, String> {
+public interface RouteAssignmentJpaRepository extends JpaRepository<RouteAssignmentEntityAbstract, String> {
 
-    Optional<RouteAssignmentJpaEntity> findByRouteId(String routeId);
+    Optional<RouteAssignmentEntityAbstract> findByRouteId(String routeId);
 }

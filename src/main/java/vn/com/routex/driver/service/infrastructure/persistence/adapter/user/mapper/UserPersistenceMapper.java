@@ -2,11 +2,11 @@ package vn.com.routex.driver.service.infrastructure.persistence.adapter.user.map
 
 import lombok.experimental.UtilityClass;
 import vn.com.routex.driver.service.domain.user.model.User;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.user.entity.UserEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.user.entity.UserEntityAbstract;
 
 @UtilityClass
 public class UserPersistenceMapper {
-    public User toDomain(UserEntity userEntity) {
+    public User toDomain(UserEntityAbstract userEntity) {
         if (userEntity == null) {
             return null;
         }
@@ -38,11 +38,11 @@ public class UserPersistenceMapper {
                 .build();
     }
 
-    public UserEntity toEntity(User user) {
+    public UserEntityAbstract toEntity(User user) {
         if (user == null) {
             return null;
         }
-        return UserEntity.builder()
+        return UserEntityAbstract.builder()
                 .id(user.getId())
                 .passwordHash(user.getPasswordHash())
                 .dob(user.getDob())

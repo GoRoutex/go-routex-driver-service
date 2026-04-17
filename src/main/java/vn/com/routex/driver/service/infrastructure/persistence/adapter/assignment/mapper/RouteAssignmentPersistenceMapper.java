@@ -2,11 +2,11 @@ package vn.com.routex.driver.service.infrastructure.persistence.adapter.assignme
 
 import lombok.experimental.UtilityClass;
 import vn.com.routex.driver.service.domain.assignment.model.RouteAssignment;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.assignment.entity.RouteAssignmentJpaEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.assignment.entity.RouteAssignmentEntityAbstract;
 
 @UtilityClass
 public class RouteAssignmentPersistenceMapper {
-    public RouteAssignment toDomain(RouteAssignmentJpaEntity entity) {
+    public RouteAssignment toDomain(RouteAssignmentEntityAbstract entity) {
         if (entity == null) {
             return null;
         }
@@ -21,11 +21,11 @@ public class RouteAssignmentPersistenceMapper {
         );
     }
 
-    public RouteAssignmentJpaEntity toEntity(RouteAssignment domain) {
+    public RouteAssignmentEntityAbstract toEntity(RouteAssignment domain) {
         if (domain == null) {
             return null;
         }
-        RouteAssignmentJpaEntity entity = new RouteAssignmentJpaEntity();
+        RouteAssignmentEntityAbstract entity = new RouteAssignmentEntityAbstract();
         entity.setId(domain.getId());
         entity.setRouteId(domain.getRouteId());
         entity.setVehicleId(domain.getVehicleId());

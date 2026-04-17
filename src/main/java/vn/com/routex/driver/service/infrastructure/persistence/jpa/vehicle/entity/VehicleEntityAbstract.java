@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import vn.com.routex.driver.service.domain.vehicle.model.VehicleStatus;
 import vn.com.routex.driver.service.domain.vehicle.model.VehicleType;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AuditingJpaEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AbstractAuditingEntity;
 
 @Getter
 @Setter
@@ -20,7 +20,7 @@ import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity
 @NoArgsConstructor
 @Entity
 @Table(name = "VEHICLE")
-public class VehicleJpaEntity extends AuditingJpaEntity {
+public class VehicleEntityAbstract extends AbstractAuditingEntity {
 
     @Id
     private String id;

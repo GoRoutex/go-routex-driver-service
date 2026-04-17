@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AuditingJpaEntity;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AbstractAuditingEntity;
 
 import java.time.OffsetDateTime;
 
@@ -21,7 +21,7 @@ import java.time.OffsetDateTime;
 @Entity
 @Table(name = "ROUTE_STOP")
 @SuperBuilder
-public class RouteStopEntity extends AuditingJpaEntity {
+public class RouteStopEntityAbstract extends AbstractAuditingEntity {
     @Id
     private String id;
 
