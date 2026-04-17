@@ -8,7 +8,6 @@ import vn.com.routex.driver.service.domain.booking.port.BookingSeatRepositoryPor
 import vn.com.routex.driver.service.infrastructure.persistence.jpa.booking.repository.BookingSeatJpaRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @RequiredArgsConstructor

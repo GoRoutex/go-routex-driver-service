@@ -9,7 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import static vn.com.routex.driver.service.interfaces.models.constant.ApplicationConstant.CHANNEL_REGREX;

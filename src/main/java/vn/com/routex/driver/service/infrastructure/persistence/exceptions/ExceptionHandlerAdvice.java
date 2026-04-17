@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 import vn.com.routex.driver.service.application.services.common.UseCaseException;
-import vn.com.routex.driver.service.infrastructure.utils.ApiRequestUtils;
+import vn.com.routex.driver.service.infrastructure.persistence.utils.ApiRequestUtils;
 import vn.com.routex.driver.service.interfaces.models.base.BaseRequest;
 import vn.com.routex.driver.service.interfaces.models.base.BaseResponse;
 import vn.com.routex.driver.service.interfaces.models.result.ApiResult;
@@ -36,8 +36,8 @@ import static vn.com.routex.driver.service.application.services.common.ErrorCons
 @RestControllerAdvice
 public class ExceptionHandlerAdvice {
 
-    private BaseResponse buildBaseResponse(BaseRequest baseRequest, ApiResult result) {
-        return BaseResponse.builder()
+    private BaseResponse<Void> buildBaseResponse(BaseRequest baseRequest, ApiResult result) {
+        return BaseResponse.<Void>builder()
                 .requestId(baseRequest.getRequestId())
                 .requestDateTime(baseRequest.getRequestDateTime())
                 .channel(baseRequest.getChannel())
@@ -45,7 +45,7 @@ public class ExceptionHandlerAdvice {
                 .build();
     }
 
-    private ResponseEntity<BaseResponse> createErrorResponse(
+    private ResponseEntity<BaseResponse<Void>> createErrorResponse(
             HttpStatus status,
             BaseRequest baseRequest,
             String responseCode,
@@ -68,7 +68,7 @@ public class ExceptionHandlerAdvice {
     }
 
     @ExceptionHandler(BusinessException.class)
-    public ResponseEntity<BaseResponse> handleBusinessException(HttpServletRequest request, BusinessException ex) {
+    public ResponseEntity<BaseResponse<Void>> handleBusinessException(HttpServletRequest request, BusinessException ex) {
         BaseRequest baseRequest = logAndGetBaseRequest(request, ex);
 
         if (TIMEOUT_ERROR.equals(ex.getResult().getResponseCode())) {
@@ -80,14 +80,14 @@ public class ExceptionHandlerAdvice {
     }
 
     @ExceptionHandler(UseCaseException.class)
-    public ResponseEntity<BaseResponse> handleUseCaseException(HttpServletRequest request, UseCaseException ex) {
+    public ResponseEntity<BaseResponse<Void>> handleUseCaseException(HttpServletRequest request, UseCaseException ex) {
         BaseRequest baseRequest = logAndGetBaseRequest(request, ex);
         HttpStatus status = TIMEOUT_ERROR.equals(ex.getCode()) ? HttpStatus.GATEWAY_TIMEOUT : HttpStatus.BAD_REQUEST;
         return createErrorResponse(status, baseRequest, ex.getCode(), ex.getDescription());
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<BaseResponse> handleMethodArgumentNotValidException(HttpServletRequest request, MethodArgumentNotValidException ex) {
+    public ResponseEntity<BaseResponse<Void>> handleMethodArgumentNotValidException(HttpServletRequest request, MethodArgumentNotValidException ex) {
         String errorFieldList = getErrorFieldListResponse(ex.getBindingResult().getAllErrors());
         String errorMessage = "Invalid Input: " + errorFieldList;
         BaseRequest baseRequest = ApiRequestUtils.getBaseRequestOrDefault(request);
@@ -134,13 +134,13 @@ public class ExceptionHandlerAdvice {
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<BaseResponse> handleHttpMessageNotReadableException(HttpServletRequest request, HttpMessageNotReadableException e) {
+    public ResponseEntity<BaseResponse<Void>> handleHttpMessageNotReadableException(HttpServletRequest request, HttpMessageNotReadableException e) {
         BaseRequest baseRequest = logAndGetBaseRequest(request, e);
         return createErrorResponse(HttpStatus.BAD_REQUEST, baseRequest, INVALID_INPUT_ERROR, INVALID_INPUT_MESSAGE);
     }
 
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
-    public ResponseEntity<BaseResponse> handleHttpRequestMethodNotSupportedException(HttpServletRequest request, HttpRequestMethodNotSupportedException e) {
+    public ResponseEntity<BaseResponse<Void>> handleHttpRequestMethodNotSupportedException(HttpServletRequest request, HttpRequestMethodNotSupportedException e) {
         return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).build();
     }
 
@@ -152,7 +152,7 @@ public class ExceptionHandlerAdvice {
 //    }
 
     @ExceptionHandler(NoResourceFoundException.class)
-    public ResponseEntity<BaseResponse> handleNoResourceFoundException(HttpServletRequest request, NoResourceFoundException e) {
+    public ResponseEntity<BaseResponse<Void>> handleNoResourceFoundException(HttpServletRequest request, NoResourceFoundException e) {
         BaseRequest baseRequest = logAndGetBaseRequest(request, e);
         String description = String.format(INVALID_HTTP_REQUEST_RESOURCE_ERROR_MESSAGE, e.getResourcePath());
         return createErrorResponse(HttpStatus.BAD_REQUEST, baseRequest, INVALID_HTTP_REQUEST_RESOURCE_ERROR, description);

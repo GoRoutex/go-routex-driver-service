@@ -1,7 +1,7 @@
 package vn.com.routex.driver.service.infrastructure.persistence.exceptions;
 
-import vn.com.routex.driver.service.interfaces.models.result.ApiResult;
 import lombok.EqualsAndHashCode;
+import vn.com.routex.driver.service.interfaces.models.result.ApiResult;
 
 @EqualsAndHashCode(callSuper = true)
 public class BusinessException extends BaseException {

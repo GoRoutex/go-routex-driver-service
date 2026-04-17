@@ -3,7 +3,6 @@ package vn.com.routex.driver.service.infrastructure.persistence.adapter.seat;
 import lombok.experimental.UtilityClass;
 import vn.com.routex.driver.service.domain.booking.model.BookingSeat;
 import vn.com.routex.driver.service.infrastructure.persistence.adapter.shared.mapper.AuditPersistenceMapper;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.booking.entity.BookingJpaEntity;
 import vn.com.routex.driver.service.infrastructure.persistence.jpa.booking.entity.BookingSeatJpaEntity;
 
 import java.util.List;

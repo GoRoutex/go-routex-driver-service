@@ -2,7 +2,6 @@ package vn.com.routex.driver.service.application.dto.passengers;
 
 
 import lombok.Builder;
-import vn.com.routex.driver.service.application.dto.base.RequestContext;
 import vn.com.routex.driver.service.domain.booking.BookingSeatStatus;
 
 import java.time.OffsetDateTime;

@@ -9,7 +9,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-import vn.com.routex.driver.service.domain.shared.model.AbstractAuditingEntity;
 import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AuditingJpaEntity;
 
 import java.time.OffsetDateTime;

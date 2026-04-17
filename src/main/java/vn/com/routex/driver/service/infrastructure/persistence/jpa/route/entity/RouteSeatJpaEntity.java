@@ -15,8 +15,6 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import vn.com.routex.driver.service.domain.seat.SeatStatus;
 
-import java.time.OffsetDateTime;
-
 @Getter
 @Setter
 @AllArgsConstructor
