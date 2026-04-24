@@ -22,7 +22,7 @@ import java.time.OffsetDateTime;
 @SuperBuilder(toBuilder = true)
 public class RouteSeat {
 
-    private Integer id;
+    private String id;
     private String routeId;
     private String seatNo;
     private SeatStatus status;

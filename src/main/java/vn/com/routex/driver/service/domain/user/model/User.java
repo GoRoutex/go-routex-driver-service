@@ -49,8 +49,6 @@ public class User extends AbstractAuditingEntity {
 
     private UserStatus status;
 
-    private String tenantId;
-
     private String language;
 
     private String timezone;

@@ -7,11 +7,12 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 import vn.com.routex.driver.service.domain.vehicle.model.VehicleStatus;
-import vn.com.routex.driver.service.domain.vehicle.model.VehicleType;
 import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AbstractAuditingEntity;
 
 @Getter
@@ -19,26 +20,26 @@ import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@SuperBuilder
 @Table(name = "VEHICLE")
-public class VehicleEntityAbstract extends AbstractAuditingEntity {
+public class VehicleEntity extends AbstractAuditingEntity {
 
     @Id
     private String id;
+
+    @Column(name = "MERCHANT_ID")
+    private String merchantId;
+
+    @Column(name = "TEMPLATE_ID")
+    private String templateId;
+
+    @Column(name = "CREATOR")
+    private String creator;
 
     @Column(name = "STATUS")
     @Enumerated(EnumType.STRING)
     private VehicleStatus status;
 
-    @Column(name = "TYPE")
-    @Enumerated(EnumType.STRING)
-    private VehicleType type;
-
-    @Column(name = "VEHICLE_PLATE")
+    @Column(name = "VEHICLE_PLATE", nullable = false)
     private String vehiclePlate;
-
-    @Column(name = "SEAT_CAPACITY")
-    private Integer seatCapacity;
-
-    @Column(name = "MANUFACTURER")
-    private String manufacturer;
 }

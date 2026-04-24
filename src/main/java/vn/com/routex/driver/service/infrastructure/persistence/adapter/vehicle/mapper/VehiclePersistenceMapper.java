@@ -1,39 +1,40 @@
 package vn.com.routex.driver.service.infrastructure.persistence.adapter.vehicle.mapper;
 
-import lombok.experimental.UtilityClass;
-import vn.com.routex.driver.service.domain.vehicle.model.Vehicle;
-import vn.com.routex.driver.service.infrastructure.persistence.adapter.shared.mapper.AuditPersistenceMapper;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.vehicle.entity.VehicleEntityAbstract;
+import org.springframework.stereotype.Component;
+import vn.com.routex.driver.service.domain.vehicle.model.VehicleProfile;
+import vn.com.routex.driver.service.infrastructure.persistence.jpa.vehicle.entity.VehicleEntity;
 
-@UtilityClass
+@Component
 public class VehiclePersistenceMapper {
-    public Vehicle toDomain(VehicleEntityAbstract entity) {
-        if (entity == null) {
-            return null;
-        }
-        Vehicle domain = new Vehicle(
-                entity.getId(),
-                entity.getStatus(),
-                entity.getType(),
-                entity.getVehiclePlate(),
-                entity.getSeatCapacity(),
-                entity.getManufacturer()
-        );
-        AuditPersistenceMapper.toDomain(domain, entity);
-        return domain;
+
+    public VehicleProfile toDomain(VehicleEntity entity) {
+        if (entity == null) return null;
+        return VehicleProfile.builder()
+                .id(entity.getId())
+                .merchantId(entity.getMerchantId())
+                .templateId(entity.getTemplateId())
+                .creator(entity.getCreator())
+                .status(entity.getStatus())
+                .vehiclePlate(entity.getVehiclePlate())
+                .createdAt(entity.getCreatedAt())
+                .createdBy(entity.getCreatedBy())
+                .updatedAt(entity.getUpdatedAt())
+                .updatedBy(entity.getUpdatedBy())
+                .build();
     }
 
-    public VehicleEntityAbstract toEntity(Vehicle domain) {
-        if (domain == null) {
-            return null;
-        }
-        VehicleEntityAbstract entity = new VehicleEntityAbstract();
-        entity.setId(domain.getId());
-        entity.setStatus(domain.getStatus());
-        entity.setType(domain.getType());
-        entity.setVehiclePlate(domain.getVehiclePlate());
-        entity.setSeatCapacity(domain.getSeatCapacity());
-        entity.setManufacturer(domain.getManufacturer());
-        return entity;
+    public VehicleEntity toEntity(VehicleProfile vehicleProfile) {
+        return VehicleEntity.builder()
+                .id(vehicleProfile.getId())
+                .merchantId(vehicleProfile.getMerchantId())
+                .templateId(vehicleProfile.getTemplateId())
+                .creator(vehicleProfile.getCreator())
+                .status(vehicleProfile.getStatus())
+                .vehiclePlate(vehicleProfile.getVehiclePlate())
+                .createdAt(vehicleProfile.getCreatedAt())
+                .createdBy(vehicleProfile.getCreatedBy())
+                .updatedAt(vehicleProfile.getUpdatedAt())
+                .updatedBy(vehicleProfile.getUpdatedBy())
+                .build();
     }
 }
