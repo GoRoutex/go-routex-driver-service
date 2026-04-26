@@ -18,7 +18,7 @@ import vn.com.routex.driver.service.domain.booking.port.BookingSeatRepositoryPor
 import vn.com.routex.driver.service.domain.driver.model.DriverProfile;
 import vn.com.routex.driver.service.domain.driver.port.DriverProfileRepositoryPort;
 import vn.com.routex.driver.service.domain.route.port.RouteRepositoryPort;
-import vn.com.routex.driver.service.domain.vehicle.model.Vehicle;
+import vn.com.routex.driver.service.domain.vehicle.model.VehicleProfile;
 import vn.com.routex.driver.service.domain.vehicle.port.VehicleRepositoryPort;
 import vn.com.routex.driver.service.infrastructure.persistence.exceptions.BusinessException;
 import vn.com.routex.driver.service.infrastructure.persistence.utils.ExceptionUtils;
@@ -63,7 +63,7 @@ public class TripManifestServiceImpl implements TripManifestService {
                 .orElseThrow(() -> new BusinessException(query.context().requestId(), query.context().requestDateTime(), query.context().channel(),
                         ExceptionUtils.buildResultResponse(RECORD_NOT_FOUND, DRIVER_NOT_FOUND_MESSAGE)));
 
-        Vehicle vehicle = vehicleRepositoryPort.findById(routeAssignment.getVehicleId())
+        VehicleProfile vehicle = vehicleRepositoryPort.findById(routeAssignment.getVehicleId())
                 .orElseThrow(() -> new BusinessException(query.context().requestId(), query.context().requestDateTime(), query.context().channel(),
                         ExceptionUtils.buildResultResponse(RECORD_NOT_FOUND, VEHICLE_NOT_FOUND_MESSAGE)));
 
@@ -79,12 +79,12 @@ public class TripManifestServiceImpl implements TripManifestService {
                         .build())
                 .vehicleInfo(GetTripManifestVehicleView.builder()
                         .vehicleId(vehicle.getId())
-                        .vehicleType(vehicle.getType().name())
+//                        .vehicleType(vehicle.getType().name())
                         .plate(vehicle.getVehiclePlate())
-                        .totalSeats(vehicle.getSeatCapacity())
+//                        .totalSeats(vehicle.getSeatCapacity())
                         .build())
                 .summary(GetTripManifestSummaryView.builder()
-                        .totalSeats(vehicle.getSeatCapacity())
+//                        .totalSeats(vehicle.getSeatCapacity())
                         .bookedSeats(bookingSeat.size())
                         .checkedInSeats(1)
                         .boardedSeats(1)

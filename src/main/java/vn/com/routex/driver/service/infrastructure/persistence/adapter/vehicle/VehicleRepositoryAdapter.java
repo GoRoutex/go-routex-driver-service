@@ -2,7 +2,6 @@ package vn.com.routex.driver.service.infrastructure.persistence.adapter.vehicle;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import vn.com.routex.driver.service.domain.vehicle.model.Vehicle;
 import vn.com.routex.driver.service.domain.vehicle.model.VehicleProfile;
 import vn.com.routex.driver.service.domain.vehicle.port.VehicleRepositoryPort;
 import vn.com.routex.driver.service.infrastructure.persistence.adapter.vehicle.mapper.VehiclePersistenceMapper;
