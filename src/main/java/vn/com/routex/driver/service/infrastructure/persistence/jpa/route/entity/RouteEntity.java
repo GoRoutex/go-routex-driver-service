@@ -10,10 +10,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import vn.com.routex.driver.service.domain.route.model.RouteStatus;
+import vn.com.routex.driver.service.domain.route.RouteStatus;
 import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AbstractAuditingEntity;
-
-import java.time.OffsetDateTime;
 
 @Getter
 @Setter
@@ -21,31 +19,31 @@ import java.time.OffsetDateTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "ROUTE")
-public class RouteEntityAbstract extends AbstractAuditingEntity {
+public class RouteEntity extends AbstractAuditingEntity {
 
     @Id
     private String id;
 
-    @Column(name = "ROUTE_CODE")
-    private String routeCode;
+    @Column(name = "ORIGIN_CODE")
+    private String originCode;
 
-    @Column(name = "ORIGIN")
-    private String origin;
+    @Column(name = "DESTINATION_CODE")
+    private String destinationCode;
 
-    @Column(name = "DESTINATION")
-    private String destination;
+    @Column(name = "ORIGIN_NAME")
+    private String originName;
 
-    @Column(name = "PLANNED_START_TIME")
-    private OffsetDateTime plannedStartTime;
+    @Column(name = "DESTINATION_NAME")
+    private String destinationName;
 
-    @Column(name = "PLANNED_END_TIME")
-    private OffsetDateTime plannedEndTime;
+    @Column(name = "DURATION")
+    private Long duration;
 
-    @Column(name = "ACTUAL_START_TIME")
-    private OffsetDateTime actualStartTime;
+    @Column(name = "CREATOR")
+    private String creator;
 
-    @Column(name = "ACTUAL_END_TIME")
-    private OffsetDateTime actualEndTime;
+    @Column(name = "MERCHANT_ID")
+    private String merchantId;
 
     @Column(name = "STATUS")
     @Enumerated(EnumType.STRING)

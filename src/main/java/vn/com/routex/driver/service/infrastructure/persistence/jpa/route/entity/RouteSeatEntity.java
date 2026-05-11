@@ -22,7 +22,7 @@ import vn.com.routex.driver.service.domain.seat.SeatStatus;
 @SuperBuilder
 @Entity
 @Table(name = "ROUTE_SEAT")
-public class RouteSeatJpaEntity {
+public class RouteSeatEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,5 +40,6 @@ public class RouteSeatJpaEntity {
 
     @Column(name = "CREATOR")
     private String creator;
+
 }
 

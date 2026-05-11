@@ -10,9 +10,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import vn.com.routex.driver.service.domain.assignment.model.RouteAssignmentStatus;
+import lombok.experimental.SuperBuilder;
+import vn.com.routex.driver.service.domain.assignment.TripAssignmentStatus;
 import vn.com.routex.driver.service.infrastructure.persistence.jpa.shared.entity.AbstractAuditingEntity;
 
+import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
 @Getter
@@ -20,19 +22,29 @@ import java.time.OffsetDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "ROUTE_ASSIGNMENT")
-public class RouteAssignmentEntityAbstract extends AbstractAuditingEntity {
+@SuperBuilder
+@Table(name = "TRIP_ASSIGNMENT")
+public class TripAssignmentEntity extends AbstractAuditingEntity {
     @Id
     private String id;
 
-    @Column(name = "ROUTE_ID")
-    private String routeId;
+    @Column(name = "MERCHANT_ID")
+    private String merchantId;
+
+    @Column(name = "TRIP_ID")
+    private String tripId;
+
+    @Column(name = "CREATOR")
+    private String creator;
 
     @Column(name = "DRIVER_ID")
     private String driverId;
 
     @Column(name = "VEHICLE_ID")
     private String vehicleId;
+
+    @Column(name = "TICKET_PRICE")
+    private BigDecimal ticketPrice;
 
     @Column(name = "ASSIGNED_AT")
     private OffsetDateTime assignedAt;
@@ -42,5 +54,6 @@ public class RouteAssignmentEntityAbstract extends AbstractAuditingEntity {
 
     @Column(name = "STATUS")
     @Enumerated(EnumType.STRING)
-    private RouteAssignmentStatus status;
+    private TripAssignmentStatus status;
+
 }

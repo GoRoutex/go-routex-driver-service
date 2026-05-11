@@ -3,9 +3,7 @@ package vn.com.routex.driver.service.infrastructure.persistence.adapter.route;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import vn.com.routex.driver.service.domain.route.model.Route;
-import vn.com.routex.driver.service.domain.route.port.RouteRepositoryPort;
 import vn.com.routex.driver.service.infrastructure.persistence.adapter.route.mapper.RoutePersistenceMapper;
-import vn.com.routex.driver.service.infrastructure.persistence.jpa.route.repository.RouteJpaRepository;
 
 import java.util.Optional;
 
