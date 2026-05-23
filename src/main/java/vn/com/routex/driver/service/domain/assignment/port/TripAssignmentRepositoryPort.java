@@ -10,5 +10,6 @@ import java.util.Optional;
  */
 public interface TripAssignmentRepositoryPort {
     Optional<TripAssignmentRecord> findById(String id);
+    Optional<TripAssignmentRecord> findByTripId(String tripId);
     TripAssignmentRecord save(TripAssignmentRecord assignment);
 }

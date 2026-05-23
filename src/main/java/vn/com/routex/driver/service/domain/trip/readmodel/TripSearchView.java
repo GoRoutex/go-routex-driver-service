@@ -1,15 +1,11 @@
 package vn.com.routex.driver.service.domain.trip.readmodel;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-import vn.com.routex.merchant.platform.domain.trip.TripStatus;
-
+import vn.com.routex.driver.service.domain.trip.TripStatus;
 import java.time.OffsetDateTime;
-
-
 @Getter
 @Setter
 @AllArgsConstructor

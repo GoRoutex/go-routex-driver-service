@@ -1,0 +1,18 @@
+package vn.com.routex.driver.service.infrastructure.cache.redis.models;
+
+import lombok.Builder;
+import vn.com.routex.driver.service.domain.seat.SeatFloor;
+import vn.com.routex.driver.service.domain.seat.SeatStatus;
+
+@Builder(toBuilder = true)
+public record TripCacheSeat(
+        String tripId,
+        String seatId,
+        String seatNo,
+        String seatTemplateId,
+        SeatStatus status,
+        SeatFloor floor,
+        int rowNo,
+        int colNo
+) {
+}

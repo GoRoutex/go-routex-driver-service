@@ -1,9 +1,7 @@
 package vn.com.routex.driver.service.domain.trip.port;
-
-
-import vn.com.routex.merchant.platform.domain.common.PagedResult;
-import vn.com.routex.merchant.platform.domain.trip.readmodel.TripFetchView;
-import vn.com.routex.merchant.platform.domain.trip.readmodel.TripSearchView;
+import vn.com.routex.driver.service.domain.common.PagedResult;
+import vn.com.routex.driver.service.domain.trip.readmodel.TripFetchView;
+import vn.com.routex.driver.service.domain.trip.readmodel.TripSearchView;
 
 import java.util.List;
 

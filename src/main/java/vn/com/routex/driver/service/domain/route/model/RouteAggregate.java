@@ -26,7 +26,14 @@ public class RouteAggregate extends AbstractAuditingEntity {
     private String destinationName;
     private String originCode;
     private String destinationCode;
+    private String originProvinceId;
+    private String destinationProvinceId;
+    private String originDepartmentId;
+    private String originDepartmentName;
+    private String destinationDepartmentId;
+    private String destinationDepartmentName;
     private Long duration;
+    private Long distance;
     private RouteStatus status;
     private List<RouteStopPlan> stopPlans;
 
@@ -36,21 +43,34 @@ public class RouteAggregate extends AbstractAuditingEntity {
             String merchantId,
             String originCode,
             String destinationCode,
+            String originProvinceId,
+            String destinationProvinceId,
+            String originDepartmentId,
+            String originDepartmentName,
+            String destinationDepartmentName,
+            String destinationDepartmentId,
             String originName,
             String destinationName,
             Long duration,
+            Long distance,
             OffsetDateTime createdAt,
-            List<RouteStopPlan> stopPlans
-    ) {
+            List<RouteStopPlan> stopPlans) {
         return RouteAggregate.builder()
                 .id(id)
                 .creator(creator)
                 .merchantId(merchantId)
                 .originCode(originCode)
                 .destinationCode(destinationCode)
+                .originProvinceId(originProvinceId)
+                .originDepartmentName(originDepartmentName)
+                .destinationDepartmentName(destinationDepartmentName)
+                .destinationProvinceId(destinationProvinceId)
+                .originDepartmentId(originDepartmentId)
+                .destinationDepartmentId(destinationDepartmentId)
                 .originName(originName)
                 .destinationName(destinationName)
                 .duration(duration)
+                .distance(distance)
                 .status(RouteStatus.ACTIVE)
                 .createdAt(createdAt)
                 .createdBy(creator)
@@ -58,9 +78,8 @@ public class RouteAggregate extends AbstractAuditingEntity {
                 .build();
     }
 
-
     public void cancel(String creator, OffsetDateTime now) {
-        this.status = RouteStatus.INACTIVE;
+        this.status = RouteStatus.SUSPENDED;
         this.setUpdatedBy(creator);
         this.setUpdatedAt(now);
     }

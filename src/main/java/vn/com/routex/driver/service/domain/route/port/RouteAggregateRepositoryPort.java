@@ -1,7 +1,5 @@
 package vn.com.routex.driver.service.domain.route.port;
 
-
-
 import vn.com.routex.driver.service.domain.route.model.RouteAggregate;
 
 import java.util.List;

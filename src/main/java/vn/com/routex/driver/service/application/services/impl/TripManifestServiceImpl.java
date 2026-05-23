@@ -46,7 +46,7 @@ public class TripManifestServiceImpl implements TripManifestService {
     @Override
     public TripManifestView getTripManifest(GetTripManifestQuery query) {
 
-        TripAssignmentRecord tripAssignment = tripAssignmentRepositoryPort.findByRouteId(query.routeId())
+        TripAssignmentRecord tripAssignment = tripAssignmentRepositoryPort.findByTripId(query.routeId())
                 .orElseThrow(() -> new BusinessException(query.context().requestId(), query.context().requestDateTime(), query.context().channel(),
                         ExceptionUtils.buildResultResponse(RECORD_NOT_FOUND, ROUTE_ASSIGNMENT_NOT_FOUND)));
 
