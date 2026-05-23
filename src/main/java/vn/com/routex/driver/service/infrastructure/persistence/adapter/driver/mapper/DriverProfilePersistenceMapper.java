@@ -2,7 +2,6 @@ package vn.com.routex.driver.service.infrastructure.persistence.adapter.driver.m
 
 import lombok.experimental.UtilityClass;
 import vn.com.routex.driver.service.domain.driver.model.DriverProfile;
-import vn.com.routex.driver.service.infrastructure.persistence.adapter.shared.mapper.AuditPersistenceMapper;
 import vn.com.routex.driver.service.infrastructure.persistence.jpa.driver.entity.DriverProfileEntityAbstract;
 
 @UtilityClass
@@ -11,7 +10,7 @@ public class DriverProfilePersistenceMapper {
         if (entity == null) {
             return null;
         }
-        DriverProfile domain = DriverProfile.builder()
+        return DriverProfile.builder()
                 .id(entity.getId())
                 .userId(entity.getUserId())
                 .currentRouteId(entity.getCurrentRouteId())
@@ -31,9 +30,11 @@ public class DriverProfilePersistenceMapper {
                 .kycVerified(entity.getKycVerified())
                 .trainingCompleted(entity.getTrainingCompleted())
                 .note(entity.getNote())
+                .createdAt(entity.getCreatedAt())
+                .createdBy(entity.getCreatedBy())
+                .updatedAt(entity.getUpdatedAt())
+                .updatedBy(entity.getUpdatedBy())
                 .build();
-        AuditPersistenceMapper.toDomain(domain, entity);
-        return domain;
     }
 
     public DriverProfileEntityAbstract toEntity(DriverProfile domain) {

@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import vn.com.routex.driver.service.domain.shared.model.AbstractAuditingEntity;
-import vn.com.routex.driver.service.domain.user.Gender;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -17,7 +16,7 @@ import java.time.OffsetDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@SuperBuilder
+@SuperBuilder(toBuilder = true)
 public class User extends AbstractAuditingEntity {
 
     private String id;
@@ -48,8 +47,6 @@ public class User extends AbstractAuditingEntity {
     private Boolean emailVerified = false;
 
     private UserStatus status;
-
-    private String tenantId;
 
     private String language;
 

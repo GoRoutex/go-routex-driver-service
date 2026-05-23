@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-import vn.com.routex.driver.service.domain.route.model.RouteStatus;
+import vn.com.routex.driver.service.domain.route.RouteStatus;
 import vn.com.routex.driver.service.interfaces.models.base.BaseResponse;
 
 import java.time.OffsetDateTime;

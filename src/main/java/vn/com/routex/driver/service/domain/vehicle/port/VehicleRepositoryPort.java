@@ -1,14 +1,14 @@
 package vn.com.routex.driver.service.domain.vehicle.port;
 
-import vn.com.routex.driver.service.domain.vehicle.model.Vehicle;
+
+import vn.com.routex.driver.service.domain.vehicle.model.VehicleProfile;
 
 import java.util.Optional;
 
-/**
- * Domain repository port (no Spring Data/JPA dependency).
- */
 public interface VehicleRepositoryPort {
-    Optional<Vehicle> findById(String id);
+    Optional<VehicleProfile> findById(String vehicleId);
 
-    Vehicle save(Vehicle vehicle);
+    void save(VehicleProfile vehicle);
+
+    Optional<VehicleProfile> findById(String vehicleId, String merchantId);
 }

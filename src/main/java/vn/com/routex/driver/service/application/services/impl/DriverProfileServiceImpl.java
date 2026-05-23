@@ -18,12 +18,12 @@ import vn.com.routex.driver.service.domain.driver.model.DriverProfile;
 import vn.com.routex.driver.service.domain.driver.model.DriverStatus;
 import vn.com.routex.driver.service.domain.driver.model.OperationStatus;
 import vn.com.routex.driver.service.domain.driver.port.DriverProfileRepositoryPort;
-import vn.com.routex.driver.service.domain.shared.port.IdGeneratorPort;
 import vn.com.routex.driver.service.domain.user.model.User;
 import vn.com.routex.driver.service.domain.user.port.UserRepositoryPort;
 
 import java.time.Clock;
 import java.time.OffsetDateTime;
+import java.util.UUID;
 
 import static vn.com.routex.driver.service.application.services.common.ErrorConstant.DRIVER_NOT_FOUND_MESSAGE;
 import static vn.com.routex.driver.service.application.services.common.ErrorConstant.DUPLICATE_ERROR;
@@ -37,7 +37,6 @@ public class DriverProfileServiceImpl implements DriverProfileService {
 
     private final DriverProfileRepositoryPort driverProfileRepositoryPort;
     private final UserRepositoryPort userRepositoryPort;
-    private final IdGeneratorPort idGeneratorPort;
     private final Clock clock;
 
     @Override
@@ -47,7 +46,7 @@ public class DriverProfileServiceImpl implements DriverProfileService {
         }
 
         DriverProfile driver = DriverProfile.builder()
-                .id(idGeneratorPort.newId())
+                .id(UUID.randomUUID().toString())
                 .userId(command.userId())
                 .currentRouteId(command.currentRouteId() != null ? command.currentRouteId() : "")
                 .employeeCode(command.employeeCode())
